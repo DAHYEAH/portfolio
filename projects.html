@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Dahye Lee</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Dahye Lee</a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.about">About</a></li>
+      <li><a href="experience.html" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="projects.html" class="current" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Projects ── -->
+  <section id="projects" style="padding-top: 100px;">
+    <div class="container">
+      <p class="section-label" data-i18n="section.projects">Projects</p>
+      <h2 class="section-title" data-i18n="projects.title">Selected Work</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-icon">🐷</div>
+          <div class="project-period" data-i18n="proj1.period">2023.01 — 2023.12 · Capstone</div>
+          <h3 data-i18n="proj1.title">Pig Farm Status Board Handwritten OCR App</h3>
+          <p data-i18n="proj1.desc">Algorithm to separate overlapping handwritten digit detection regions. Full-stack: server, backend, and Flutter app.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <a href="https://github.com/HBNU-SWUNIV/come-capstone23-accuracy100" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🔢</div>
+          <div class="project-period" data-i18n="proj2.period">2023.03 — 2023.05</div>
+          <h3 data-i18n="proj2.title">7-Segment Display OCR</h3>
+          <p data-i18n="proj2.desc">OCR model for 7-segment numeric displays. Edge detection pipeline to locate status boards via mobile camera.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PARSeq</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+          <a href="https://github.com/DAHYEAH/7SegmentProject" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">📋</div>
+          <div class="project-period" data-i18n="proj3.period">2022.01 — 2022.12</div>
+          <h3 data-i18n="proj3.title">ArUco Marker + OCR Status Board App</h3>
+          <p data-i18n="proj3.desc">Table detection and handwritten text recognition from pig farm boards using ArUco markers and OCR.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">Flutter</span>
+          </div>
+          <a href="https://github.com/DAHYEAAAH/OCR" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+
+      </div>
+
+      <!-- ── Contests ── -->
+      <div class="contests-section">
+        <p class="section-label" data-i18n="section.contests">Competitions</p>
+        <h2 class="section-title" data-i18n="contests.title">AI Competitions</h2>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="project-icon">🏆</div>
+            <div class="project-period" data-i18n="contest1.period">2023.07 · SW AI Competition — 🥇 Excellence Award</div>
+            <h3 data-i18n="contest1.title">Satellite Image Building Segmentation</h3>
+            <p data-i18n="contest1.desc">Building area segmentation from satellite imagery. Data preprocessing and semantic segmentation model training.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">UNet</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Anaconda</span>
+            </div>
+            <a href="https://www.notion.so/DACON-2023-SW-AI-e23aaab8a2374c808740e206e5121fd0" class="project-link" target="_blank" rel="noopener">Notion →</a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon">🧠</div>
+            <div class="project-period" data-i18n="contest2.period">2022.08 · SW AI Competition — Preliminary</div>
+            <h3 data-i18n="contest2.title">Psychological Tendency Prediction</h3>
+            <p data-i18n="contest2.desc">Ensemble algorithm to predict psychological tendencies from psychometric test data.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">RandomForest</span>
+              <span class="tech-tag">Colab</span>
+            </div>
+            <a href="https://github.com/DAHYEAH/SW_AI_CONTEST" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Dahye Lee · AI Developer</p>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

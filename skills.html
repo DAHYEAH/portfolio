@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skills — Dahye Lee</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Dahye Lee</a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.about">About</a></li>
+      <li><a href="experience.html" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="skills.html" class="current" data-i18n="nav.skills">Skills</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Skills ── -->
+  <section id="skills" style="padding-top: 100px;">
+    <div class="container">
+      <p class="section-label" data-i18n="section.skills">Skills</p>
+      <h2 class="section-title" data-i18n="skills.title">Technical Skills</h2>
+      <div class="skills-groups">
+
+        <div class="skills-group">
+          <h3 data-i18n="skills.ai">AI / ML</h3>
+          <div class="skills-list">
+            <span class="skill-pill">PyTorch</span>
+            <span class="skill-pill">OpenCV</span>
+            <span class="skill-pill">OCR</span>
+            <span class="skill-pill">Object Detection</span>
+            <span class="skill-pill">Semantic Segmentation</span>
+            <span class="skill-pill">LLM</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3 data-i18n="skills.lang">Languages</h3>
+          <div class="skills-list">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">C</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3 data-i18n="skills.infra">Backend / Infra</h3>
+          <div class="skills-list">
+            <span class="skill-pill">Flask</span>
+            <span class="skill-pill">Django</span>
+            <span class="skill-pill">Spring Boot</span>
+            <span class="skill-pill">MySQL</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">AWS</span>
+            <span class="skill-pill">Git</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3 data-i18n="skills.mobile">Mobile</h3>
+          <div class="skills-list">
+            <span class="skill-pill">Flutter</span>
+            <span class="skill-pill">Firebase</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Dahye Lee · AI Developer</p>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -469,6 +469,72 @@ section {
   margin-top: 4rem;
 }
 
+/* ── 경력 상세 bullet ── */
+.timeline-bullets {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.timeline-bullets li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent-light);
+}
+
+.bullet-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.bullet-detail {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── 논문 카드 ── */
+.pub-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  background: var(--bg-alt);
+}
+
+.pub-venue {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.pub-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.pub-authors {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* ── 자격증 pill ── */
+.cert-pill {
+  background: var(--accent-light) !important;
+  border-color: #bfdbfe !important;
+  color: var(--accent-dark) !important;
+}
+
 /* =====================================================
    SKILLS (skills.html)
    ===================================================== */

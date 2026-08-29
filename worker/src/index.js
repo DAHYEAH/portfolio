@@ -16,7 +16,7 @@ const TOP_K = 4;
    LLM 이 시스템 프롬프트의 규칙에 따라 수행한다. */
 const MIN_SCORE = 0.35;
 const MAX_QUESTION_CHARS = 500;
-const MAX_HISTORY_TURNS = 6;
+const MAX_HISTORY_MESSAGES = 6;   // user/assistant 각각 1개씩 세므로 직전 3번의 왕복
 const RATE_LIMIT = { max: 12, windowMs: 60_000 };
 
 /* 지식 베이스는 isolate 수명 동안 재사용 (콜드스타트마다 1회만 fetch) */
@@ -198,7 +198,7 @@ export default {
 
     const history = Array.isArray(body.history)
       ? body.history
-          .slice(-MAX_HISTORY_TURNS)
+          .slice(-MAX_HISTORY_MESSAGES)
           .filter(m => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
           .map(m => ({ role: m.role, content: m.content.slice(0, 2000) }))
       : [];

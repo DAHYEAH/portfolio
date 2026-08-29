@@ -255,6 +255,8 @@ async function ask(question) {
     if (!answer) throw new Error('network');
 
     addSources(sources);
+    // 한 번 주고받을 때마다 2개가 쌓이므로, 6 = 직전 3번의 왕복.
+    // 더 길게 두면 매 질문의 입력 토큰이 계속 불어나고 오래된 맥락이 답변을 흐린다.
     state.history.push({ role: 'user', content: question });
     state.history.push({ role: 'assistant', content: answer });
     state.history = state.history.slice(-6);

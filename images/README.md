@@ -8,8 +8,6 @@
 
 | 파일 | 쓰이는 곳 | 권장 크기 | 없을 때 |
 |---|---|---|---|
-| `hero.png` | 히어로 배경 (챗봇 패널 뒤) | 2400×1400↑ 가로형 | 인디고 그라디언트 |
-| `profile.png` | About 프로필 | 800×800 정사각 | 이니셜 `DL` |
 | `proj-document-understanding.png` | 문서 이해 모델 | 1200×675 (16:9) | `DU` |
 | `proj-rag.png` | RAG 파이프라인 | 1200×675 | `RAG` |
 | `proj-document-parsing.png` | 문서 파싱 시스템 | 1200×675 | `DP` |
@@ -19,12 +17,28 @@
 
 ## 이미 있는 것
 
+### 직접 그린 SVG
+
+| 파일 | 내용 |
+|---|---|
+| `profile.svg` | About 프로필 — 플랫 벡터 일러스트 아바타 |
+| `hero.svg` | 히어로 배경 — 추상 그라디언트 + 문서/노드 그래프 모티프 |
+
+SVG라 해상도에 상관없이 선명하고 파일이 작습니다.
+수정은 텍스트 에디터로 직접 하면 됩니다 — 색은 `<defs>` 의 그라디언트,
+얼굴 요소는 `이목구비` 주석 아래에 모여 있습니다.
+
+`hero.svg` 는 **중앙을 비워둔 구성**입니다. 챗봇 패널이 그 위에 오고
+흰색 반투명 레이어(66~94%)가 덮이기 때문에, 모티프는 좌우 위쪽에만 뒀습니다.
+
+### 프로젝트 스크린샷
+
 | 파일 | 내용 |
 |---|---|
 | `proj-aruco.png` | ArUco 마커 검출 → 왜곡 보정 과정 |
 | `proj-7segment.png` | 7-segment OCR 과정 (Edge Detection → OpenCV → CNN) |
 | `proj-capstone.png` | 앱 ↔ 서버 풀스택 구조도 |
-| `proj-satellite.png` | 위성 이미지 |
+| `proj-satellite.jpg` | 위성 이미지 |
 
 > ⚠️ 원래 파일명(`labproj` / `capstone` / `7segmentproj`)이 실제 내용과 어긋나 있어
 > 내용 기준으로 이름을 바꿨습니다. **`proj-7segment` 와 `proj-capstone` 의 배치는

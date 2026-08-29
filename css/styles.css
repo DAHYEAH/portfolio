@@ -224,13 +224,13 @@ a { color: inherit; }
 }
 
 /* 생성형 히어로 이미지가 들어갈 자리.
-   images/hero.png 가 없으면 아래 그라디언트만 보이며, 그 상태로도 완성돼 보인다. */
+   images/hero.svg 가 없으면 아래 그라디언트만 보이며, 그 상태로도 완성돼 보인다. */
 .hero-bg {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(180deg, rgba(248,248,253,.90) 0%, rgba(248,248,253,.72) 45%, rgba(248,248,253,.96) 100%),
-    url('../images/hero.png');
+    linear-gradient(180deg, rgba(248,248,253,.82) 0%, rgba(248,248,253,.66) 45%, rgba(248,248,253,.94) 100%),
+    url('../images/hero.svg');
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;

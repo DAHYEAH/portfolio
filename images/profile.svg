@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Illustrated portrait of Dahye Lee">
+  <title>Dahye Lee</title>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#EFEDFE"/>
+      <stop offset="55%"  stop-color="#E3DFFC"/>
+      <stop offset="100%" stop-color="#D5D0F9"/>
+    </linearGradient>
+
+    <linearGradient id="hair" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%"   stop-color="#3A3352"/>
+      <stop offset="100%" stop-color="#231E38"/>
+    </linearGradient>
+
+    <linearGradient id="blouse" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#EDEBF8"/>
+    </linearGradient>
+
+    <linearGradient id="skin" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0%"   stop-color="#FAE1CD"/>
+      <stop offset="100%" stop-color="#F2CFB4"/>
+    </linearGradient>
+
+    <clipPath id="frame"><rect width="800" height="800"/></clipPath>
+    <clipPath id="faceClip"><ellipse cx="400" cy="348" rx="101" ry="122"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="800" height="800" fill="url(#bg)"/>
+
+    <!-- 배경 장식: 사이트 액센트로 옅은 깊이만 준다 -->
+    <circle cx="140" cy="150" r="120" fill="#6C63F5" opacity=".07"/>
+    <circle cx="690" cy="240" r="88"  fill="#6C63F5" opacity=".06"/>
+    <circle cx="660" cy="640" r="150" fill="#9B7CFB" opacity=".07"/>
+
+    <!-- ── 뒷머리 ── -->
+    <path d="M400 158
+             C482 158, 536 214, 536 300
+             L536 486
+             C536 540, 528 578, 514 606
+             L286 606
+             C272 578, 264 540, 264 486
+             L264 300
+             C264 214, 318 158, 400 158 Z"
+          fill="url(#hair)"/>
+
+    <!-- ── 목 ── -->
+    <path d="M362 402 L362 512 C362 556, 379 578, 400 578 C421 578, 438 556, 438 512 L438 402 Z"
+          fill="#F0C9AC"/>
+    <path d="M362 402 L362 452 C376 474, 424 474, 438 452 L438 402 Z" fill="#E3B899" opacity=".55"/>
+
+    <!-- ── 어깨 / 블라우스 ── -->
+    <path d="M140 800 C140 648, 250 550, 400 550 C550 550, 660 648, 660 800 Z"
+          fill="url(#blouse)"/>
+    <!-- 칼라 -->
+    <path d="M352 557 L400 638 L448 557 C432 551, 416 549, 400 549 C384 549, 368 551, 352 557 Z"
+          fill="#F4F2FC"/>
+    <path d="M352 557 L400 638 L448 557" fill="none" stroke="#D9D5EF" stroke-width="4" stroke-linejoin="round"/>
+    <!-- 옷깃 액센트 -->
+    <path d="M400 660 a11 11 0 1 0 .1 0 Z" fill="#6C63F5" opacity=".85"/>
+
+    <!-- ── 옆머리: 어깨 위로 흘러내린다 ── -->
+    <path d="M276 300 C266 400, 268 470, 276 528 C284 586, 292 634, 296 668
+             C300 690, 282 700, 272 682 C252 640, 240 560, 240 470 C240 388, 252 322, 276 300 Z"
+          fill="url(#hair)"/>
+    <path d="M524 300 C534 400, 532 470, 524 528 C516 586, 508 634, 504 668
+             C500 690, 518 700, 528 682 C548 640, 560 560, 560 470 C560 388, 548 322, 524 300 Z"
+          fill="url(#hair)"/>
+
+    <!-- ── 얼굴 ── -->
+    <ellipse cx="400" cy="348" rx="101" ry="122" fill="url(#skin)"/>
+
+    <!-- ── 앞머리: 옆으로 넘긴 컷 ── -->
+    <g clip-path="url(#faceClip)">
+      <path d="M299 348 C299 250, 344 214, 400 214 C456 214, 501 250, 501 348
+               C501 300, 470 286, 434 292 C392 299, 350 288, 330 268
+               C312 292, 302 318, 299 348 Z"
+            fill="url(#hair)"/>
+    </g>
+    <path d="M400 212 C334 212, 292 258, 292 330 C292 292, 306 268, 326 254
+             C356 282, 404 292, 444 284 C478 278, 502 292, 508 330
+             C508 258, 466 212, 400 212 Z"
+          fill="url(#hair)"/>
+
+    <!-- ── 이목구비 ── -->
+    <!-- 눈썹 -->
+    <path d="M340 326 C352 316, 374 316, 386 324" fill="none"
+          stroke="#2B2540" stroke-width="8" stroke-linecap="round" opacity=".85"/>
+    <path d="M414 324 C426 316, 448 316, 460 326" fill="none"
+          stroke="#2B2540" stroke-width="8" stroke-linecap="round" opacity=".85"/>
+
+    <!-- 눈 -->
+    <ellipse cx="363" cy="362" rx="12.5" ry="14" fill="#2B2540"/>
+    <ellipse cx="437" cy="362" rx="12.5" ry="14" fill="#2B2540"/>
+    <circle cx="367.5" cy="357" r="4.2" fill="#FFFFFF"/>
+    <circle cx="441.5" cy="357" r="4.2" fill="#FFFFFF"/>
+
+    <!-- 볼 -->
+    <ellipse cx="332" cy="396" rx="21" ry="13" fill="#F2A9A0" opacity=".40"/>
+    <ellipse cx="468" cy="396" rx="21" ry="13" fill="#F2A9A0" opacity=".40"/>
+
+    <!-- 코 -->
+    <path d="M398 380 C392 392, 393 400, 403 401" fill="none"
+          stroke="#DDA88A" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- 밝게 웃는 입 -->
+    <path d="M362 419 C380 450, 420 450, 438 419 C420 434, 380 434, 362 419 Z" fill="#8C3F4C"/>
+    <path d="M365 421 C382 428, 418 428, 435 421 C418 426, 382 426, 365 421 Z" fill="#FFFFFF"/>
+    <path d="M362 419 C380 450, 420 450, 438 419" fill="none"
+          stroke="#8C3F4C" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+</svg>

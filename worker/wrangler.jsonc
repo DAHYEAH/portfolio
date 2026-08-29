@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio-chat",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-01",
+
+  // Workers AI 바인딩 — 이것 덕분에 API 키가 필요 없다.
+  // env.AI 로 호출하며, 비밀값 문자열이 코드에도 저장소에도 존재하지 않는다.
+  "ai": {
+    "binding": "AI"
+  },
+
+  "vars": {
+    // 지식 베이스(빌드 산출물)를 GitHub Pages 에서 읽어온다
+    "KB_URL": "https://dahyeah.github.io/portfolio/data/kb.json",
+
+    // 이 오리진에서 온 요청만 허용 (남이 무료 티어를 퍼가는 것 방지)
+    "ALLOWED_ORIGINS": "https://dahyeah.github.io,http://localhost:8000,http://127.0.0.1:8000",
+
+    // 답변 생성 모델. 무료 한도를 아끼려면 아래 주석의 작은 모델로 교체 가능
+    "LLM_MODEL": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    // 저렴한 대안: "@cf/meta/llama-3.2-3b-instruct" (한국어 품질은 떨어짐)
+  },
+
+  "observability": {
+    "enabled": true
+  }
+}

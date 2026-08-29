@@ -1,187 +1,87 @@
-<img width="1943" height="1093" alt="image" src="https://github.com/user-attachments/assets/cc2ff955-17c2-48c7-81c8-479a0f061850" />
+# dahyeah.github.io/portfolio
 
-# DevPortfolio Template
+이다혜(Dahye Lee) 포트폴리오 — 정적 HTML/CSS/JS + RAG 챗봇.
 
-A modern, minimalist portfolio template built with Astro and Tailwind CSS. Perfect for developers looking to showcase their skills, experience, and projects in a clean, professional way.
+🔗 https://dahyeah.github.io/portfolio/
 
-This was completely rebuilt from the ground up from V1. This template was built to be entirely ready to go with a quick config edit (see below) but also provides the ability to easily extend in whatever way you want.
-
-This template also comes with `CLAUDE.md` and `.cursor/rules` files for easy integration with your existing AI workflows.
-
-> **📬 Connect & Share!**  
-> For questions and updates, feel free to reach out on [**X (Twitter)**](https://x.com/rfitzio).  
-> If you've built and published your personal site with this template, I'd love to see it! Send me a DM 🚀
-
-## Preview
-
-To view a live preview of the site, [click here](https://ryanfitzgerald.github.io/devportfolio/).
-
-## Built With
-
-- **[Astro](https://astro.build/)** - Static site generator for modern web apps
-- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[Tabler Icons](https://tabler.io/icons)** - Free and open source icons
-- **TypeScript** - For type-safe configuration
-
-## Updating the Template
-
-### Configuration
-
-The template is designed to be easily customizable through the `src/config.ts` file. This single file controls:
-
-- **Personal Information**: Name, title, description
-- **Accent Color**: Primary color theme (changing this will change the accent color site wide)
-- **Social Links**: Email, LinkedIn, Twitter, GitHub (all optional)
-- **About Section**: Personal bio/description
-- **Skills**: List of technical skills
-- **Projects**: Project showcase with descriptions and links
-- **Experience**: Work history with bullet points
-- **Education**: Educational background and achievements
-
-If skills, projects, experience, or education are removed from the config, those sections will be hidden entirely.
-
-### Example structures
-
-Here's what the config data structure looks like for each section:
-
-#### Basic Information
-```typescript
-name: "Your Name",
-title: "Your Job Title",
-description: "Brief site description",
-accentColor: "#1d4ed8", // Hex color for theme
-```
-
-#### Social Links (all optional)
-```typescript
-social: {
-  email: "your-email@example.com",
-  linkedin: "https://linkedin.com/in/yourprofile",
-  twitter: "https://twitter.com/yourprofile", 
-  github: "https://github.com/yourusername",
-}
-```
-
-#### About Section
-```typescript
-aboutMe: "A paragraph describing yourself, your background, interests, and what you're passionate about. This appears in the About section of your portfolio."
-```
-
-#### Skills
-```typescript
-skills: ["JavaScript", "React", "Node.js", "Python", "AWS", "Docker"]
-```
-
-#### Projects
-```typescript
-projects: [
-  {
-    name: "Project Name",
-    description: "Brief description of what the project does and its impact",
-    link: "https://github.com/yourusername/project",
-    skills: ["React", "Node.js", "AWS"], // Technologies used
-  }
-]
-```
-
-#### Experience
-```typescript
-experience: [
-  {
-    company: "Company Name",
-    title: "Your Job Title",
-    dateRange: "Jan 2022 - Present",
-    bullets: [
-      "Led development of microservices architecture serving 1M+ users",
-      "Reduced API response times by 40% through optimization",
-      "Mentored team of 5 junior developers",
-    ],
-  }
-]
-```
-
-#### Education
-```typescript
-education: [
-  {
-    school: "University Name",
-    degree: "Bachelor of Science in Computer Science",
-    dateRange: "2014 - 2018",
-    achievements: [
-      "Graduated Magna Cum Laude with 3.8 GPA",
-      "Dean's List all semesters",
-      "President of Computer Science Club"
-    ]
-  }
-]
-```
-
-### Icons
-
-The template uses [Tabler Icons](https://tabler.io/icons) for all icons. If you wish to add more icons and have it look consistent with what's already there, you can browse through their extensive icon library.
-
-## Project Structure
+## 구조
 
 ```
-devportfolio/
-├── public/
-│   └── favicon.svg          # Site favicon
-├── src/
-│   ├── components/          # Astro components
-│   │   ├── About.astro      # About section
-│   │   ├── Education.astro  # Education section
-│   │   ├── Experience.astro # Work experience section
-│   │   ├── Footer.astro     # Site footer
-│   │   ├── Header.astro     # Navigation header
-│   │   ├── Hero.astro       # Hero/intro section
-│   │   └── Projects.astro   # Projects showcase
-│   ├── pages/
-│   │   └── index.astro      # Main page layout
-│   ├── styles/
-│   │   └── global.css       # Global styles
-│   └── config.ts            # Site configuration
-├── astro.config.mjs         # Astro configuration
-├── package.json             # Project dependencies
-├── tailwind.config.js       # Tailwind configuration
-└── tsconfig.json            # TypeScript configuration
+├── index.html  experience.html  projects.html  skills.html  contact.html
+├── css/styles.css          전체 스타일 (챗봇 위젯 포함)
+├── js/
+│   ├── i18n.js             한/영 토글
+│   └── chat.js             챗봇 위젯 UI
+├── content/                📚 지식 베이스 (md) — 페이지 내용의 원본
+├── scripts/build-index.mjs 🔨 content/ → data/kb.json (청킹 + 임베딩)
+├── data/kb.json            🤖 빌드 산출물 (챗봇이 검색하는 인덱스)
+└── worker/                 ☁️ Cloudflare Worker (검색 + 답변 생성)
 ```
 
-## Local Development
+## 콘텐츠 수정
 
-If you'd like to run it locally:
+`content/` 안의 md 파일이 단일 진실 공급원입니다. 작성 규칙은 [`content/README.md`](content/README.md) 참고.
 
-```
-git clone https://github.com/RyanFitzgerald/devportfolio.git
-cd devportfolio
-npm install
-```
+md를 고쳤으면 인덱스를 다시 만들어야 챗봇이 반영합니다:
 
-After that, start up the Astro dev server with:
-
-```
-npm run dev
+```bash
+node scripts/build-index.mjs
 ```
 
-## Deployment
+> HTML 페이지 내용은 아직 수동 동기화입니다. md를 고치면 해당 HTML도 같이 손봐주세요.
 
-The template can be deployed to any static hosting service easily (and in most cases, completely free). Here are some options:
+## 챗봇 — 어떻게 동작하나
 
-- To deploy with Netlify, [click here](https://docs.astro.build/en/guides/deploy/netlify/).
-- To deploy with Vercel, [click here](https://docs.astro.build/en/guides/deploy/vercel/).
-- To deploy with GitHub Pages, [click here](https://docs.astro.build/en/guides/deploy/github/).
-- To deploy with Cloudflare Pages, [click here](https://docs.astro.build/en/guides/deploy/cloudflare/).
-- To deploy with Render, [click here](https://docs.astro.build/en/guides/deploy/render/).
+```
+[브라우저]  질문
+     ↓
+[Cloudflare Worker]
+     ├─ bge-m3 로 질문 임베딩
+     ├─ data/kb.json 과 코사인 유사도 → 상위 4개 청크
+     └─ LLM 에 청크를 근거로 넣어 답변 생성 (SSE 스트리밍)
+     ↓
+[브라우저]  답변 + 참고 문서 칩
+```
 
-Want to deploy somewhere else? Find more guides [here](https://docs.astro.build/en/guides/deploy/).
+**API 키를 커밋하지 않습니다.** GitHub Pages는 정적 호스팅이라 비밀값을 둘 곳이 없는데,
+Workers AI를 `env.AI` 바인딩으로 호출하므로 애초에 키 문자열이 생기지 않습니다.
+`wrangler login`의 자격증명은 로컬(`~/.wrangler`)에만 남습니다.
 
-## Changelog
+### 최초 설정
 
-To view the changelog, see CHANGELOG.md.
+```bash
+cd worker && npm install && npx wrangler login   # 브라우저 OAuth 1회
+cd .. && node scripts/build-index.mjs            # → data/kb.json
+cd worker && npx wrangler deploy                 # → https://portfolio-chat.<계정>.workers.dev
+# 배포된 URL 을 js/chat.js 상단 WORKER_URL 에 반영
+```
 
-## License
+**API 토큰은 필요 없습니다.** 토큰이 없으면 빌드 스크립트가 자동으로
+`wrangler dev --remote` 를 잠깐 띄워 OAuth 세션으로 임베딩을 만들고 종료합니다.
+(신규 Cloudflare 계정에서 API 토큰 발급이 `verify your email` 로 막히는 사례가 있어
+ 토큰 없이도 되도록 해둔 경로입니다.)
 
-This project is fully and completely MIT. See LICENSE.md.
+토큰이 있으면 그쪽이 조금 더 빠릅니다 — `.env.local` 에 `CLOUDFLARE_API_TOKEN` 을 넣으면
+자동으로 REST 경로를 씁니다. `--via-wrangler` 로 강제 전환할 수도 있습니다.
 
-## Questions?
+자세한 내용과 무료 한도는 [`worker/README.md`](worker/README.md) 참고.
+요약: Workers AI 무료 할당은 하루 10,000 뉴런이고, 기본 모델 기준 **하루 약 100회 대화**입니다.
 
-Feel free to reach out on [X (Twitter)](https://x.com/rfitzio) if you have any questions or need help.
+### 로컬 확인
+
+```bash
+python3 -m http.server 8000
+# → http://localhost:8000
+```
+
+`worker/wrangler.jsonc` 의 `ALLOWED_ORIGINS` 에 `localhost:8000` 이 이미 들어 있습니다.
+
+## 배포
+
+`master` 브랜치 루트를 GitHub Pages 가 그대로 서빙합니다. push 하면 반영됩니다.
+Worker 는 별도로 `npx wrangler deploy` 해야 합니다.
+
+---
+
+레이아웃 초기 골격은 [RyanFitzgerald/devportfolio](https://github.com/RyanFitzgerald/devportfolio) 에서 출발했으며,
+현재는 Astro 없이 순수 정적 파일로 재작성되어 있습니다.

@@ -6,17 +6,34 @@
 
 ## 구조
 
+단일 페이지 스크롤이고, **챗봇이 히어로 중앙**에 배치되어 있습니다.
+
 ```
-├── index.html  experience.html  projects.html  skills.html  contact.html
-├── css/styles.css          전체 스타일 (챗봇 위젯 포함)
+├── index.html              전체 페이지 (hero → about → experience → projects → skills → contact)
+├── experience.html …       기존 4개 페이지 → index.html#앵커 로 리다이렉트 (링크 호환용)
+├── css/styles.css          전체 스타일
 ├── js/
 │   ├── i18n.js             한/영 토글
-│   └── chat.js             챗봇 위젯 UI
-├── content/                📚 지식 베이스 (md) — 페이지 내용의 원본
+│   ├── site.js             네비게이션 · 스크롤 스파이 · 모바일 메뉴
+│   └── chat.js             히어로 챗봇 패널
+├── images/                 🖼 README.md 에 생성해야 할 이미지 목록
+├── content/                📚 지식 베이스 (md) — 챗봇 답변의 원본
 ├── scripts/build-index.mjs 🔨 content/ → data/kb.json (청킹 + 임베딩)
 ├── data/kb.json            🤖 빌드 산출물 (챗봇이 검색하는 인덱스)
 └── worker/                 ☁️ Cloudflare Worker (검색 + 답변 생성)
 ```
+
+## 디자인
+
+| | |
+|---|---|
+| 액센트 | 페리윙클 인디고 `#6C63F5` |
+| 배경 | `#FFFFFF` / `#F8F8FD` 교차 |
+| 폰트 | Heebo (제목) · Roboto (본문) · Noto Sans KR (한글) |
+| 패턴 | 대문자 eyebrow → 굵은 제목 → 2열 카드 그리드 |
+
+이미지는 전부 `onerror` 폴백이 걸려 있어 **없어도 완성돼 보입니다.**
+넣어야 할 파일 목록은 [`images/README.md`](images/README.md) 참고.
 
 ## 콘텐츠 수정
 
@@ -28,7 +45,7 @@ md를 고쳤으면 인덱스를 다시 만들어야 챗봇이 반영합니다:
 node scripts/build-index.mjs
 ```
 
-> HTML 페이지 내용은 아직 수동 동기화입니다. md를 고치면 해당 HTML도 같이 손봐주세요.
+> `index.html` 의 내용은 아직 수동 동기화입니다. md를 고치면 HTML도 같이 손봐주세요.
 
 ## 챗봇 — 어떻게 동작하나
 

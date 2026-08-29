@@ -1,26 +1,22 @@
 /* =====================================================
-   RAG 챗봇 위젯
+   RAG 챗봇 — 히어로 인라인 패널
    검색·생성은 Cloudflare Worker 가 담당하고 여기서는 UI 만 다룬다.
    worker/README.md 참고
    ===================================================== */
 
-/* ⚠️ wrangler deploy 후 출력된 URL 로 바꿔주세요 */
 const WORKER_URL = 'https://portfolio-chat.dahyeah.workers.dev';
 
 const UI = {
   ko: {
-    launch:   '이다혜에게 물어보기',
-    title:    '포트폴리오 챗봇',
-    subtitle: '경력·프로젝트에 대해 물어보세요',
-    greeting: '안녕하세요! 이다혜님의 포트폴리오 안내 챗봇이에요.\n경력, 프로젝트, 기술 스택에 대해 편하게 물어보세요.',
+    prompt:      '이다혜의 경력과 프로젝트에 대해 물어보세요',
     placeholder: '무엇이 궁금하신가요?',
-    send:     '보내기',
-    close:    '닫기',
-    sources:  '참고한 문서',
-    thinking: '찾아보는 중',
+    send:        '보내기',
+    sources:     '참고',
+    thinking:    '찾아보는 중',
+    foot:        'content/ 의 문서를 검색해 답합니다 · 문서에 없는 내용은 답하지 않습니다',
     suggestions: [
-      '어떤 프로젝트를 했나요?',
       'RAG 경험이 있나요?',
+      '어떤 프로젝트를 했나요?',
       '기술 스택이 어떻게 되나요?',
       '수상 경력이 있나요?',
     ],
@@ -32,18 +28,15 @@ const UI = {
     },
   },
   en: {
-    launch:   'Ask about Dahye',
-    title:    'Portfolio Chatbot',
-    subtitle: 'Ask about experience and projects',
-    greeting: "Hi! I'm a guide to Dahye Lee's portfolio.\nAsk me anything about her experience, projects, or tech stack.",
+    prompt:      "Ask about Dahye's experience and projects",
     placeholder: 'What would you like to know?',
-    send:     'Send',
-    close:    'Close',
-    sources:  'Sources',
-    thinking: 'Looking it up',
+    send:        'Send',
+    sources:     'Sources',
+    thinking:    'Looking it up',
+    foot:        'Answers are retrieved from the documents in content/ — nothing outside them.',
     suggestions: [
-      'What projects has she worked on?',
       'Does she have RAG experience?',
+      'What projects has she worked on?',
       'What is her tech stack?',
       'Has she won any awards?',
     ],
@@ -56,33 +49,21 @@ const UI = {
   },
 };
 
-const state = {
-  open: false,
-  busy: false,
-  history: [],
-};
+const state = { busy: false, history: [], started: false };
 
 const lang = () => (localStorage.getItem('lang') === 'ko' ? 'ko' : 'en');
 const t = () => UI[lang()];
 
 /* ── DOM 조립 ── */
-function build() {
-  const root = document.createElement('div');
-  root.className = 'chat-root';
-  root.innerHTML = `
-    <button class="chat-launcher" type="button" aria-haspopup="dialog" aria-expanded="false">
-      <span class="chat-launcher-icon" aria-hidden="true">💬</span>
-      <span class="chat-launcher-label"></span>
-    </button>
+const mount = document.getElementById('chat-mount');
 
-    <div class="chat-panel" role="dialog" aria-modal="false" aria-label="Portfolio chatbot" hidden>
-      <header class="chat-header">
-        <div>
-          <p class="chat-title"></p>
-          <p class="chat-subtitle"></p>
-        </div>
-        <button class="chat-close" type="button">✕</button>
-      </header>
+if (mount) {
+  mount.innerHTML = `
+    <div class="chat-panel">
+      <p class="chat-prompt">
+        <span class="chat-prompt-dot" aria-hidden="true"></span>
+        <span class="chat-prompt-text"></span>
+      </p>
 
       <div class="chat-log" role="log" aria-live="polite"></div>
 
@@ -90,38 +71,37 @@ function build() {
 
       <form class="chat-form">
         <input class="chat-input" type="text" autocomplete="off" maxlength="500">
-        <button class="chat-send" type="submit"></button>
+        <button class="chat-send" type="submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h13M12 5l7 7-7 7"/>
+          </svg>
+        </button>
       </form>
+
+      <p class="chat-foot"></p>
     </div>
   `;
-  document.body.appendChild(root);
-  return root;
 }
 
-const root = build();
-const el = {
-  launcher:    root.querySelector('.chat-launcher'),
-  launchLabel: root.querySelector('.chat-launcher-label'),
-  panel:       root.querySelector('.chat-panel'),
-  title:       root.querySelector('.chat-title'),
-  subtitle:    root.querySelector('.chat-subtitle'),
-  close:       root.querySelector('.chat-close'),
-  log:         root.querySelector('.chat-log'),
-  suggestions: root.querySelector('.chat-suggestions'),
-  form:        root.querySelector('.chat-form'),
-  input:       root.querySelector('.chat-input'),
-  send:        root.querySelector('.chat-send'),
-};
+const el = mount ? {
+  promptText:  mount.querySelector('.chat-prompt-text'),
+  log:         mount.querySelector('.chat-log'),
+  suggestions: mount.querySelector('.chat-suggestions'),
+  form:        mount.querySelector('.chat-form'),
+  input:       mount.querySelector('.chat-input'),
+  send:        mount.querySelector('.chat-send'),
+  foot:        mount.querySelector('.chat-foot'),
+} : null;
 
 /* ── 정적 문구 적용 (언어 토글 시 재호출) ── */
-function applyLang() {
+function applyChatLang() {
+  if (!el) return;
   const s = t();
-  el.launchLabel.textContent = s.launch;
-  el.title.textContent       = s.title;
-  el.subtitle.textContent    = s.subtitle;
-  el.close.setAttribute('aria-label', s.close);
-  el.input.placeholder       = s.placeholder;
-  el.send.textContent        = s.send;
+  el.promptText.textContent = s.prompt;
+  el.input.placeholder      = s.placeholder;
+  el.send.setAttribute('aria-label', s.send);
+  el.foot.textContent       = s.foot;
 
   el.suggestions.innerHTML = '';
   for (const q of s.suggestions) {
@@ -132,12 +112,23 @@ function applyLang() {
     chip.addEventListener('click', () => ask(q));
     el.suggestions.appendChild(chip);
   }
+}
 
-  // 인사말은 아직 대화가 없을 때만 갱신
-  if (state.history.length === 0) {
-    el.log.innerHTML = '';
-    addMessage('assistant', s.greeting);
+/* ── 스트리밍 토큰 이어붙이기 ──
+   Workers AI 의 SSE 는 숫자만으로 된 토큰을 JSON "숫자"로 직렬화하면서
+   토큰 앞의 공백을 잃는다:  " 2024"  →  {"response": 2024}
+   그대로 이으면 "…부터2024년", "from2024.07" 처럼 붙어버린다.
+   (비스트리밍 호출은 온전한 문자열을 주므로 스트리밍 경로만의 손실이다.)
+
+   복원 규칙: 숫자 토큰 앞 글자가 문자류일 때만 공백을 되살린다.
+   숫자·소수점·하이픈·여는 괄호 뒤에는 넣지 않는다 — "2024" + "." + "07" 같은
+   분해를 망가뜨리지 않기 위해서다. */
+function appendToken(answer, token) {
+  if (typeof token === 'number' && answer) {
+    const prev = answer.slice(-1);
+    if (!/[\s\d.,\-/:~([{'"]/.test(prev)) return `${answer} ${token}`;
   }
+  return answer + token;
 }
 
 /* ── 메시지 렌더 ── */
@@ -157,7 +148,10 @@ function addSources(sources) {
   if (!sources?.length) return;
   const wrap = document.createElement('div');
   wrap.className = 'chat-sources';
-  wrap.innerHTML = `<span class="chat-sources-label">${t().sources}</span>`;
+  const label = document.createElement('span');
+  label.className = 'chat-sources-label';
+  label.textContent = t().sources;
+  wrap.appendChild(label);
   for (const s of sources) {
     const chip = document.createElement('span');
     chip.className = 'chat-source-chip';
@@ -170,7 +164,14 @@ function addSources(sources) {
 
 /* ── 질의 ── */
 async function ask(question) {
-  if (state.busy) return;
+  if (!el || state.busy) return;
+
+  // 첫 질문에서 로그를 펼치고 추천 질문을 감춘다
+  if (!state.started) {
+    state.started = true;
+    el.log.classList.add('active');
+  }
+  el.suggestions.hidden = true;
 
   if (WORKER_URL.includes('YOUR-SUBDOMAIN')) {
     addMessage('user', question);
@@ -181,13 +182,11 @@ async function ask(question) {
   state.busy = true;
   el.input.value = '';
   el.send.disabled = true;
-  el.suggestions.hidden = true;
 
   addMessage('user', question);
 
-  const bubble = addMessage('assistant', '');
+  const bubble = addMessage('assistant', t().thinking);
   bubble.classList.add('chat-typing');
-  bubble.textContent = t().thinking;
 
   try {
     const res = await fetch(WORKER_URL, {
@@ -199,15 +198,11 @@ async function ask(question) {
     if (res.status === 429) throw new Error('rate');
     if (!res.ok) throw new Error(res.status >= 500 ? 'quota' : 'network');
 
-    const ctype = res.headers.get('Content-Type') ?? '';
-
     // 관련 문서를 못 찾은 경우 Worker 가 일반 JSON 으로 응답한다
-    if (ctype.includes('application/json')) {
+    if ((res.headers.get('Content-Type') ?? '').includes('application/json')) {
       const data = await res.json();
       bubble.classList.remove('chat-typing');
       bubble.textContent = data.answer ?? t().errors.network;
-      state.busy = false;
-      el.send.disabled = false;
       return;
     }
 
@@ -244,7 +239,7 @@ async function ask(question) {
           // ({"response": 2024}). falsy 검사를 쓰면 토큰이 0 일 때 사라지므로
           // null/undefined 만 걸러낸다.
           if (chunk.response != null) {
-            answer += chunk.response;
+            answer = appendToken(answer, chunk.response);
             bubble.textContent = answer;
             el.log.scrollTop = el.log.scrollHeight;
           }
@@ -262,40 +257,26 @@ async function ask(question) {
     state.history = state.history.slice(-6);
 
   } catch (err) {
-    bubble.remove();
+    bubble.closest('.chat-msg').remove();
     const key = ['rate', 'quota', 'network'].includes(err.message) ? err.message : 'network';
     addMessage('error', t().errors[key]);
   } finally {
     state.busy = false;
     el.send.disabled = false;
-    el.input.focus();
   }
 }
 
-/* ── 열기 / 닫기 ── */
-function toggle(open) {
-  state.open = open ?? !state.open;
-  el.panel.hidden = !state.open;
-  el.launcher.setAttribute('aria-expanded', String(state.open));
-  root.classList.toggle('chat-open', state.open);
-  if (state.open) el.input.focus();
+if (el) {
+  el.form.addEventListener('submit', e => {
+    e.preventDefault();
+    const q = el.input.value.trim();
+    if (q) ask(q);
+  });
+
+  /* 언어 토글 버튼이 눌리면 챗봇 문구도 따라간다 */
+  for (const id of ['btn-en', 'btn-ko']) {
+    document.getElementById(id)?.addEventListener('click', () => setTimeout(applyChatLang, 0));
+  }
+
+  applyChatLang();
 }
-
-el.launcher.addEventListener('click', () => toggle());
-el.close.addEventListener('click', () => toggle(false));
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && state.open) toggle(false);
-});
-
-el.form.addEventListener('submit', e => {
-  e.preventDefault();
-  const q = el.input.value.trim();
-  if (q) ask(q);
-});
-
-/* 언어 토글 버튼이 눌리면 챗봇 문구도 따라간다 */
-for (const id of ['btn-en', 'btn-ko']) {
-  document.getElementById(id)?.addEventListener('click', () => setTimeout(applyLang, 0));
-}
-
-applyLang();

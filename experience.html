@@ -2,113 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Experience — Dahye Lee</title>
-  <link rel="icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- 단일 페이지로 통합됨. 기존 링크·북마크가 깨지지 않도록 앵커로 보낸다. -->
+  <meta http-equiv="refresh" content="0; url=index.html#experience">
+  <link rel="canonical" href="https://dahyeah.github.io/portfolio/#experience">
+  <title>Dahye Lee — AI Developer</title>
+  <script>location.replace('index.html#experience');</script>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">Dahye Lee</a>
-    <ul class="nav-links">
-      <li><a href="index.html" data-i18n="nav.about">About</a></li>
-      <li><a href="experience.html" class="current" data-i18n="nav.experience">Experience</a></li>
-      <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
-      <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
-      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ── Work Experience ── -->
-  <section id="experience" style="padding-top: 100px;">
-    <div class="container">
-      <p class="section-label" data-i18n="section.experience">Experience</p>
-      <h2 class="section-title" data-i18n="experience.title">Work Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">2023.10 — Present</div>
-          <div class="timeline-content">
-            <h3 data-i18n="exp.company">JiranSoft (formerly JiranData)</h3>
-            <h4 data-i18n="exp.role">AI Developer · AI Research Team</h4>
-            <p data-i18n="exp.desc">AI R&D focused on document intelligence: OCR, Table Structure Recognition, RAG, document parsing, and invisible image watermarking.</p>
-            <ul class="timeline-bullets">
-              <li>
-                <span class="bullet-name" data-i18n="exp.proj1.name">Document Understanding Model</span>
-                <span class="bullet-detail" data-i18n="exp.proj1.detail">OCR model training, dataset quality improvement, user-specific adapter, inference optimization (TensorRT / Triton), Table Structure Recognition (TSR)</span>
-              </li>
-              <li>
-                <span class="bullet-name" data-i18n="exp.proj2.name">Retrieval-Augmented Generation (RAG)</span>
-                <span class="bullet-detail" data-i18n="exp.proj2.detail">RAG pipeline, vector database (FAISS), prompt engineering, embedding</span>
-              </li>
-              <li>
-                <span class="bullet-name" data-i18n="exp.proj3.name">Document Parsing</span>
-                <span class="bullet-detail" data-i18n="exp.proj3.detail">OOXML, PDF, Hancom Docs, ODT parsing · de-identification · document reconstruction</span>
-              </li>
-              <li>
-                <span class="bullet-name" data-i18n="exp.proj4.name">Invisible Image Watermarking</span>
-                <span class="bullet-detail" data-i18n="exp.proj4.detail">Frequency-domain watermarking · image transformation robustness</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── Academic Projects ── -->
-      <div class="edu-section">
-        <p class="section-label" data-i18n="section.academic">Academic Projects</p>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">2023.03 — 2023.09</div>
-            <div class="timeline-content">
-              <h3 data-i18n="acad2.company">U-RE, Korea</h3>
-              <h4 data-i18n="acad2.role">Walking Robot Stability Control Algorithm</h4>
-              <p data-i18n="acad2.desc">Simulation-based reinforcement learning control algorithm for walking robot stability. Object detection with YOLO.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2022.04 — 2023.02</div>
-            <div class="timeline-content">
-              <h3 data-i18n="acad1.company">Gfarm (agricultural corporation)</h3>
-              <h4 data-i18n="acad1.role">OCR-based Pig Farm Status Board Recognition & DB Update System</h4>
-              <p data-i18n="acad1.desc">OCR pipeline for pig farm status boards, mobile app, and database/API server.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── Education ── -->
-      <div class="edu-section">
-        <p class="section-label" data-i18n="section.education">Education</p>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">2020.03 — 2024.02</div>
-            <div class="timeline-content">
-              <h3 data-i18n="edu.name">Hanbat National University</h3>
-              <h4 data-i18n="edu.degree">B.S. in Computer Engineering · Advisor: Prof. Hyunbean Yi</h4>
-              <p>GPA 4.036 / 4.5</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© <span id="year"></span> Dahye Lee · AI Developer</p>
-  </footer>
-
-  <script src="js/i18n.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="js/chat.js"></script>
+  <p>이 페이지는 <a href="index.html#experience">메인 페이지</a>로 통합되었습니다.</p>
 </body>
 </html>

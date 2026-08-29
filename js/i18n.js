@@ -94,7 +94,7 @@ const translations = {
     /* COMPETITIONS */
     "section.contests":  "Competitions",
     "contests.title":    "AI Competitions",
-    "contest1.period":   "2023.08 · SW AI Competition (DACON) — 🥇 Excellence Award",
+    "contest1.period":   "2023.08 · SW AI Competition (DACON)",
     "contest1.title":    "Satellite Image Building Segmentation",
     "contest1.desc":     "Building area segmentation from satellite imagery. Data preprocessing and semantic segmentation model training.",
     "contest2.period":   "2022.08 · SW AI Competition — Preliminary",
@@ -122,6 +122,11 @@ const translations = {
     "contact.heading":   "Let's connect",
     "contact.desc":      "Interested in collaboration, research opportunities, or just want to chat about AI? Feel free to reach out anytime.",
     "contact.send":      "Send Message",
+    "hero.scroll":       "Scroll",
+    "contest1.award":    "Excellence Award",
+    "contact.ph.email":  "Your email",
+    "contact.ph.message":"Your message",
+    "footer.note":       "Built as a static site with a RAG chatbot on Cloudflare Workers.",
   },
 
   ko: {
@@ -214,7 +219,7 @@ const translations = {
     /* COMPETITIONS */
     "section.contests":  "대회",
     "contests.title":    "AI 경진대회",
-    "contest1.period":   "2023.08 · SW AI 경진대회 (DACON) — 🥇 SW 중심대학협의회장상",
+    "contest1.period":   "2023.08 · SW AI 경진대회 (DACON)",
     "contest1.title":    "위성 이미지 건물 영역 분할",
     "contest1.desc":     "위성 이미지에서 건물 영역 분할. 데이터 전처리 및 Semantic Segmentation 모델 학습.",
     "contest2.period":   "2022.08 · SW AI 경진대회 — 예선",
@@ -242,6 +247,11 @@ const translations = {
     "contact.heading":   "함께 이야기해요",
     "contact.desc":      "협업, 연구 관련 문의, 혹은 AI에 대해 이야기 나누고 싶으시다면 편하게 연락주세요.",
     "contact.send":      "메시지 보내기",
+    "hero.scroll":       "아래로",
+    "contest1.award":    "SW중심대학협의회장상",
+    "contact.ph.email":  "이메일 주소",
+    "contact.ph.message":"메시지를 남겨주세요",
+    "footer.note":       "정적 사이트 + Cloudflare Workers 기반 RAG 챗봇으로 만들었습니다.",
   }
 };
 
@@ -256,6 +266,12 @@ function setLang(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  // input/textarea 의 placeholder 도 함께 번역한다
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (t[key] !== undefined) el.placeholder = t[key];
   });
 }
 

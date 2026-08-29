@@ -4,42 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dahye Lee — AI Developer</title>
+  <meta name="description" content="AI developer at JiranSoft. OCR, document understanding, RAG, and invisible watermarking — from research to production.">
   <link rel="icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Roboto:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="nav-logo">Dahye Lee</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="current" data-i18n="nav.about">About</a></li>
-      <li><a href="experience.html" data-i18n="nav.experience">Experience</a></li>
-      <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
-      <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
-      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
+  <!-- ══ NAV ══ -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true"></span>
+        Dahye Lee
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about"      data-i18n="nav.about">About</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#projects"   data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#skills"     data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#contact"    data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
+        </div>
+        <button class="nav-burger" id="nav-burger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
 
-  <!-- ── Hero ── -->
+  <!-- ══ HERO — 챗봇이 중심 ══ -->
   <section id="hero">
-    <div class="container">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
       <p class="hero-eyebrow" data-i18n="hero.eyebrow">AI Developer · JiranSoft</p>
       <h1 class="hero-name">
-        Dahye Lee
         <span class="name-ko">이다혜</span>
+        <span class="name-en">Dahye Lee</span>
       </h1>
       <p class="hero-subtitle" data-i18n="hero.subtitle">
         Building intelligent document AI systems — OCR, RAG, document parsing, and watermarking from research to production.
       </p>
+
+      <!-- 챗봇이 마운트되는 곳 (js/chat.js) -->
+      <div id="chat-mount"></div>
+
       <div class="hero-tags">
         <span class="tag">Document AI</span>
         <span class="tag">OCR</span>
@@ -48,48 +65,447 @@
         <span class="tag">Computer Vision</span>
         <span class="tag">NLP</span>
       </div>
-      <div class="hero-actions">
-        <a href="projects.html" class="btn-primary" data-i18n="hero.cta.projects">View Projects</a>
-        <a href="https://www.notion.so/HOME-e0cb7a695cb34f93bc955195354ba99a" class="btn-outline" target="_blank" rel="noopener">Notion</a>
-      </div>
+
+      <a href="#about" class="hero-scroll" aria-label="Scroll to about">
+        <span data-i18n="hero.scroll">Scroll</span>
+        <span class="hero-scroll-line" aria-hidden="true"></span>
+      </a>
     </div>
   </section>
 
-  <!-- ── About ── -->
-  <section id="about">
+  <!-- ══ ABOUT ══ -->
+  <section id="about" class="band">
     <div class="container">
-      <p class="section-label" data-i18n="section.about">About</p>
-      <h2 class="section-title" data-i18n="about.title">Who I Am</h2>
-      <p class="about-bio" data-i18n="about.bio">
-        AI researcher and developer at JiranSoft, working on document understanding, OCR, and Large Language Models. I'm passionate about applying NLP and Vision Language Models to real-world document AI problems.
-      </p>
-      <div class="about-meta">
-        <div class="about-meta-item">
-          <div class="label" data-i18n="about.email.label">Email</div>
-          <div class="value">dadaguri114@gmail.com</div>
+      <div class="section-head">
+        <p class="section-label" data-i18n="section.about">About</p>
+        <h2 class="section-title" data-i18n="about.title">Who I Am</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-portrait">
+          <div class="portrait-frame">
+            <img src="images/profile.png" alt="Dahye Lee"
+                 onerror="this.closest('.portrait-frame').classList.add('no-image'); this.remove();">
+            <span class="portrait-fallback" aria-hidden="true">DL</span>
+          </div>
         </div>
-        <div class="about-meta-item">
-          <div class="label" data-i18n="about.award.label">Awards</div>
-          <div class="value" data-i18n="about.award.value">SW AI Competition 2023 — Excellence Award · Academic Excellence Scholarship (2020–2023)</div>
-        </div>
-        <div class="about-meta-item">
-          <div class="label" data-i18n="about.paper.label">Publication</div>
-          <div class="value" data-i18n="about.paper.value">KKITS 2023 — Table Extraction & OCR on Pig Farm Status Boards</div>
-        </div>
-        <div class="about-meta-item">
-          <div class="label" data-i18n="about.qual.label">Certifications</div>
-          <div class="value" data-i18n="about.qual.value">AICE Professional · Engineer Information Processing · TOEIC 820</div>
+
+        <div class="about-body">
+          <p class="about-bio" data-i18n="about.bio">
+            AI researcher and developer at JiranSoft, working on document understanding, OCR, and Large Language Models. I'm passionate about applying NLP and Vision Language Models to real-world document AI problems.
+          </p>
+
+          <div class="about-meta">
+            <div class="about-meta-item">
+              <div class="label" data-i18n="about.email.label">Email</div>
+              <div class="value">dian3548@naver.com</div>
+            </div>
+            <div class="about-meta-item">
+              <div class="label" data-i18n="about.award.label">Awards</div>
+              <div class="value" data-i18n="about.award.value">SW AI Competition 2023 — Excellence Award · Academic Excellence Scholarship (2020–2023)</div>
+            </div>
+            <div class="about-meta-item">
+              <div class="label" data-i18n="about.paper.label">Publication</div>
+              <div class="value" data-i18n="about.paper.value">KKITS 2023 — Table Extraction &amp; OCR on Pig Farm Status Boards</div>
+            </div>
+            <div class="about-meta-item">
+              <div class="label" data-i18n="about.qual.label">Certifications</div>
+              <div class="value" data-i18n="about.qual.value">AICE Professional · Engineer Information Processing · TOEIC 820</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ══ EXPERIENCE ══ -->
+  <section id="experience" class="band band-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label" data-i18n="section.experience">Experience</p>
+        <h2 class="section-title" data-i18n="experience.title">Work Experience</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2023.10 — Present</div>
+          <div class="timeline-content">
+            <h3 data-i18n="exp.company">JiranSoft (formerly JiranData)</h3>
+            <h4 data-i18n="exp.role">AI Developer · AI Research Team</h4>
+            <p data-i18n="exp.desc">AI R&amp;D focused on document intelligence: OCR, Table Structure Recognition, RAG, document parsing, and invisible image watermarking.</p>
+            <ul class="timeline-bullets">
+              <li>
+                <span class="bullet-name" data-i18n="exp.proj1.name">Document Understanding Model</span>
+                <span class="bullet-detail" data-i18n="exp.proj1.detail">OCR model training, dataset quality improvement, user-specific adapter, inference optimization (TensorRT / Triton), Table Structure Recognition (TSR)</span>
+              </li>
+              <li>
+                <span class="bullet-name" data-i18n="exp.proj2.name">Retrieval-Augmented Generation (RAG)</span>
+                <span class="bullet-detail" data-i18n="exp.proj2.detail">RAG pipeline, vector database (FAISS), prompt engineering, embedding</span>
+              </li>
+              <li>
+                <span class="bullet-name" data-i18n="exp.proj3.name">Document Parsing</span>
+                <span class="bullet-detail" data-i18n="exp.proj3.detail">OOXML, PDF, Hancom Docs, ODT parsing · de-identification · document reconstruction</span>
+              </li>
+              <li>
+                <span class="bullet-name" data-i18n="exp.proj4.name">Invisible Image Watermarking</span>
+                <span class="bullet-detail" data-i18n="exp.proj4.detail">Frequency-domain watermarking · image transformation robustness</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-block">
+        <p class="section-label" data-i18n="section.academic">Academic Projects</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2023.03 — 2023.09</div>
+            <div class="timeline-content">
+              <h3 data-i18n="acad2.company">U-RE, Korea</h3>
+              <h4 data-i18n="acad2.role">Walking Robot Stability Control Algorithm</h4>
+              <p data-i18n="acad2.desc">Simulation-based reinforcement learning control algorithm for walking robot stability. Object detection with YOLO.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2022.04 — 2023.02</div>
+            <div class="timeline-content">
+              <h3 data-i18n="acad1.company">Gfarm (agricultural corporation)</h3>
+              <h4 data-i18n="acad1.role">OCR-based Pig Farm Status Board Recognition &amp; DB Update System</h4>
+              <p data-i18n="acad1.desc">OCR pipeline for pig farm status boards, mobile app, and database/API server.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-block">
+        <p class="section-label" data-i18n="section.education">Education</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2020.03 — 2024.02</div>
+            <div class="timeline-content">
+              <h3 data-i18n="edu.name">Hanbat National University</h3>
+              <h4 data-i18n="edu.degree">B.S. in Computer Engineering · Advisor: Prof. Hyunbean Yi</h4>
+              <p>GPA 4.036 / 4.5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ══ -->
+  <section id="projects" class="band">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label" data-i18n="section.jiransoft">JiranSoft Projects</p>
+        <h2 class="section-title" data-i18n="jiransoft.title">Work Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-thumb" data-fallback="DU">
+            <img src="images/proj-document-understanding.png" alt=""
+                 onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+          </div>
+          <div class="project-body">
+            <div class="project-period" data-i18n="jp1.period">2023.10 — Present</div>
+            <h3 data-i18n="jp1.title">Document Understanding Model Development</h3>
+            <p data-i18n="jp1.desc">OCR model training &amp; dataset quality improvement, user-specific adapter, inference optimization with TensorRT/Triton, Table Structure Recognition (TSR).</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span><span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">TensorRT</span><span class="tech-tag">Triton</span>
+              <span class="tech-tag">OCR</span><span class="tech-tag">TSR</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb" data-fallback="RAG">
+            <img src="images/proj-rag.png" alt=""
+                 onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+          </div>
+          <div class="project-body">
+            <div class="project-period" data-i18n="jp2.period">2024.07 — 2024.10</div>
+            <h3 data-i18n="jp2.title">Retrieval-Augmented Generation (RAG)</h3>
+            <p data-i18n="jp2.desc">End-to-end RAG pipeline with vector database (FAISS), prompt engineering, and embedding for enterprise document Q&amp;A.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span><span class="tech-tag">LangChain</span>
+              <span class="tech-tag">FAISS</span><span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">OpenAI API</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb" data-fallback="DP">
+            <img src="images/proj-document-parsing.png" alt=""
+                 onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+          </div>
+          <div class="project-body">
+            <div class="project-period" data-i18n="jp3.period">2026.01 — Present</div>
+            <h3 data-i18n="jp3.title">Document Parsing System</h3>
+            <p data-i18n="jp3.desc">Multi-format document parsing (OOXML, PDF, Hancom Docs, ODT), de-identification via OCR + Regex, document reconstruction.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Java</span><span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">OCR</span><span class="tech-tag">Regex</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb" data-fallback="WM">
+            <img src="images/proj-watermarking.png" alt=""
+                 onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+          </div>
+          <div class="project-body">
+            <div class="project-period" data-i18n="jp4.period">2026.06 — Present</div>
+            <h3 data-i18n="jp4.title">Invisible Image Watermarking</h3>
+            <p data-i18n="jp4.desc">Frequency-domain watermarking with robustness against image transformation attacks.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span><span class="tech-tag">Signal Processing</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="sub-block">
+        <div class="section-head">
+          <p class="section-label" data-i18n="section.projects">Academic Projects</p>
+          <h2 class="section-title" data-i18n="projects.title">University Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-thumb" data-fallback="RL">
+              <img src="images/proj-walking-robot.png" alt=""
+                   onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+            </div>
+            <div class="project-body">
+              <div class="project-period" data-i18n="proj0.period">2023.03 — 2023.09 · U-RE, Korea</div>
+              <h3 data-i18n="proj0.title">Walking Robot Stability Control Algorithm</h3>
+              <p data-i18n="proj0.desc">Simulation-based reinforcement learning control algorithm for walking stability. Object detection with YOLO.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">YOLO</span>
+                <span class="tech-tag">Object Detection</span><span class="tech-tag">Reinforcement Learning</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb" data-fallback="OCR">
+              <img src="images/proj-capstone.png" alt=""
+                   onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+            </div>
+            <div class="project-body">
+              <div class="project-period" data-i18n="proj1.period">2023.01 — 2023.12 · Capstone</div>
+              <h3 data-i18n="proj1.title">Pig Farm Status Board Handwritten OCR App</h3>
+              <p data-i18n="proj1.desc">Algorithm to separate overlapping handwritten digit detection regions. Full-stack: server, backend, and Flutter app.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Flask</span><span class="tech-tag">Flutter</span>
+                <span class="tech-tag">AWS</span>
+              </div>
+              <a href="https://github.com/HBNU-SWUNIV/come-capstone23-accuracy100" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb" data-fallback="7SEG">
+              <img src="images/proj-7segment.png" alt=""
+                   onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+            </div>
+            <div class="project-body">
+              <div class="project-period" data-i18n="proj2.period">2023.03 — 2023.05</div>
+              <h3 data-i18n="proj2.title">7-Segment Display OCR</h3>
+              <p data-i18n="proj2.desc">OCR model for 7-segment numeric displays. Edge detection pipeline to locate status boards via mobile camera.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">PARSeq</span>
+                <span class="tech-tag">OpenCV</span><span class="tech-tag">Flutter</span>
+              </div>
+              <a href="https://github.com/DAHYEAH/7SegmentProject" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb" data-fallback="ARUCO">
+              <img src="images/proj-aruco.png" alt=""
+                   onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+            </div>
+            <div class="project-body">
+              <div class="project-period" data-i18n="proj3.period">2022.01 — 2022.12</div>
+              <h3 data-i18n="proj3.title">ArUco Marker + OCR Status Board App</h3>
+              <p data-i18n="proj3.desc">Table detection and handwritten text recognition from pig farm boards using ArUco markers and OCR.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">Flask</span>
+                <span class="tech-tag">OpenCV</span><span class="tech-tag">PyTorch</span>
+              </div>
+              <a href="https://github.com/DAHYEAAAH/OCR" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="sub-block">
+        <div class="section-head">
+          <p class="section-label" data-i18n="section.contests">Competitions</p>
+          <h2 class="section-title" data-i18n="contests.title">AI Competitions</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card is-award">
+            <div class="project-thumb" data-fallback="SEG">
+              <img src="images/proj-satellite.png" alt=""
+                   onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+              <span class="award-ribbon" data-i18n="contest1.award">Excellence Award</span>
+            </div>
+            <div class="project-body">
+              <div class="project-period" data-i18n="contest1.period">2023.08 · SW AI Competition (DACON)</div>
+              <h3 data-i18n="contest1.title">Satellite Image Building Segmentation</h3>
+              <p data-i18n="contest1.desc">Building area segmentation from satellite imagery. Data preprocessing and semantic segmentation model training.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">UNet</span><span class="tech-tag">Docker</span>
+              </div>
+              <a href="https://www.notion.so/DACON-2023-SW-AI-e23aaab8a2374c808740e206e5121fd0" class="project-link" target="_blank" rel="noopener">Notion →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb" data-fallback="ML">
+              <img src="images/proj-psych.png" alt=""
+                   onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
+            </div>
+            <div class="project-body">
+              <div class="project-period" data-i18n="contest2.period">2022.08 · SW AI Competition — Preliminary</div>
+              <h3 data-i18n="contest2.title">Psychological Tendency Prediction</h3>
+              <p data-i18n="contest2.desc">Ensemble algorithm to predict psychological tendencies from psychometric test data.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span><span class="tech-tag">RandomForest</span><span class="tech-tag">Colab</span>
+              </div>
+              <a href="https://github.com/DAHYEAH/SW_AI_CONTEST" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="sub-block">
+        <p class="section-label" data-i18n="section.publication">Publication</p>
+        <div class="pub-card">
+          <div class="pub-venue" data-i18n="pub1.venue">KKITS 2023</div>
+          <p class="pub-title" data-i18n="pub1.title">Development of an Application for Table Extraction and Handwritten Character Recognition on Pig Farm Status Boards Using ArUco Marker and OCR</p>
+          <p class="pub-authors" data-i18n="pub1.authors">Dahye Lee, Yujeong Shin, Heejin Ahn, Hanaro Ma, Ingyu Lee, Hyunbean Yi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SKILLS ══ -->
+  <section id="skills" class="band band-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label" data-i18n="section.skills">Skills</p>
+        <h2 class="section-title" data-i18n="skills.title">Technical Skills</h2>
+      </div>
+
+      <div class="skills-groups">
+        <div class="skills-group">
+          <h3 data-i18n="skills.ai">AI / ML</h3>
+          <div class="skills-list">
+            <span class="skill-pill">OCR</span><span class="skill-pill">Document Understanding</span>
+            <span class="skill-pill">Table Structure Recognition (TSR)</span><span class="skill-pill">RAG</span>
+            <span class="skill-pill">LLM</span><span class="skill-pill">Vision Language Models</span>
+            <span class="skill-pill">Object Detection</span><span class="skill-pill">Semantic Segmentation</span>
+            <span class="skill-pill">PyTorch</span><span class="skill-pill">TensorRT</span>
+            <span class="skill-pill">Triton Inference Server</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3 data-i18n="skills.lang">Languages</h3>
+          <div class="skills-list">
+            <span class="skill-pill">Python</span><span class="skill-pill">Java</span><span class="skill-pill">C</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3 data-i18n="skills.infra">Backend / Infra</h3>
+          <div class="skills-list">
+            <span class="skill-pill">Spring Boot</span><span class="skill-pill">FastAPI</span>
+            <span class="skill-pill">Flask</span><span class="skill-pill">Django</span>
+            <span class="skill-pill">LangChain</span><span class="skill-pill">FAISS</span>
+            <span class="skill-pill">MySQL</span><span class="skill-pill">Docker</span>
+            <span class="skill-pill">AWS</span><span class="skill-pill">Linux</span><span class="skill-pill">Git</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3 data-i18n="skills.mobile">Mobile</h3>
+          <div class="skills-list">
+            <span class="skill-pill">Flutter</span><span class="skill-pill">Firebase</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3 data-i18n="skills.cert">Certifications</h3>
+          <div class="skills-list">
+            <span class="skill-pill cert-pill">AICE Professional (2026.06)</span>
+            <span class="skill-pill cert-pill">Engineer Information Processing (2024.06)</span>
+            <span class="skill-pill cert-pill">TOEIC 820 (2026.07)</span>
+            <span class="skill-pill cert-pill">TOEIC Speaking IH (2026.06)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact" class="band">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label" data-i18n="section.contact">Contact</p>
+        <h2 class="section-title" data-i18n="contact.title">Get in Touch</h2>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3 data-i18n="contact.heading">Let's connect</h3>
+          <p data-i18n="contact.desc">Interested in collaboration, research opportunities, or just want to chat about AI? Feel free to reach out anytime.</p>
+          <div class="contact-links">
+            <a href="mailto:dian3548@naver.com" class="contact-link">
+              <span class="contact-link-icon" aria-hidden="true">✉</span>
+              dian3548@naver.com
+            </a>
+            <a href="https://github.com/DAHYEAH" class="contact-link" target="_blank" rel="noopener">
+              <span class="contact-link-icon" aria-hidden="true">⌥</span>
+              github.com/DAHYEAH
+            </a>
+            <a href="https://www.notion.so/HOME-e0cb7a695cb34f93bc955195354ba99a" class="contact-link" target="_blank" rel="noopener">
+              <span class="contact-link-icon" aria-hidden="true">◈</span>
+              Notion
+            </a>
+          </div>
+        </div>
+
+        <form method="POST" action="https://formspree.io/f/dadaguri114@gmail.com">
+          <input type="hidden" name="_subject" value="Contact from dahyeah.github.io/portfolio">
+          <input type="email" name="_replyto" placeholder="Your email" data-i18n-ph="contact.ph.email" required>
+          <textarea name="message" placeholder="Your message" data-i18n-ph="contact.ph.message" required></textarea>
+          <button type="submit" data-i18n="contact.send">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <p>© <span id="year"></span> Dahye Lee · AI Developer</p>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Dahye Lee · AI Developer</p>
+      <p class="footer-note" data-i18n="footer.note">Built as a static site with a RAG chatbot on Cloudflare Workers.</p>
+    </div>
   </footer>
 
   <script src="js/i18n.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="js/site.js"></script>
   <script src="js/chat.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

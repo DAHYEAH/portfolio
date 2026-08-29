@@ -2,76 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact — Dahye Lee</title>
-  <link rel="icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- 단일 페이지로 통합됨. 기존 링크·북마크가 깨지지 않도록 앵커로 보낸다. -->
+  <meta http-equiv="refresh" content="0; url=index.html#contact">
+  <link rel="canonical" href="https://dahyeah.github.io/portfolio/#contact">
+  <title>Dahye Lee — AI Developer</title>
+  <script>location.replace('index.html#contact');</script>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">Dahye Lee</a>
-    <ul class="nav-links">
-      <li><a href="index.html" data-i18n="nav.about">About</a></li>
-      <li><a href="experience.html" data-i18n="nav.experience">Experience</a></li>
-      <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
-      <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
-      <li><a href="contact.html" class="current" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ── Contact ── -->
-  <section id="contact" style="padding-top: 100px;">
-    <div class="container">
-      <p class="section-label" data-i18n="section.contact">Contact</p>
-      <h2 class="section-title" data-i18n="contact.title">Get in Touch</h2>
-      <div class="contact-wrapper">
-
-        <div class="contact-info">
-          <h3 data-i18n="contact.heading">Let's connect</h3>
-          <p data-i18n="contact.desc">Interested in collaboration, research opportunities, or just want to chat about AI? Feel free to reach out anytime.</p>
-          <div class="contact-links">
-            <a href="mailto:dian3548@naver.com" class="contact-link">
-              <span class="contact-link-icon">✉</span>
-              dian3548@naver.com
-            </a>
-            <a href="https://github.com/DAHYEAH" class="contact-link" target="_blank" rel="noopener">
-              <span class="contact-link-icon">⌥</span>
-              github.com/DAHYEAH
-            </a>
-            <a href="https://www.notion.so/HOME-e0cb7a695cb34f93bc955195354ba99a" class="contact-link" target="_blank" rel="noopener">
-              <span class="contact-link-icon">◈</span>
-              Notion
-            </a>
-          </div>
-        </div>
-
-        <form method="POST" action="https://formspree.io/f/dadaguri114@gmail.com">
-          <input type="hidden" name="_subject" value="Contact from dahyeah.github.io/portfolio">
-          <input type="email" name="_replyto" placeholder="Your email" required>
-          <textarea name="message" placeholder="Your message" required></textarea>
-          <button type="submit" data-i18n="contact.send">Send Message</button>
-        </form>
-
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© <span id="year"></span> Dahye Lee · AI Developer</p>
-  </footer>
-
-  <script src="js/i18n.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="js/chat.js"></script>
+  <p>이 페이지는 <a href="index.html#contact">메인 페이지</a>로 통합되었습니다.</p>
 </body>
 </html>

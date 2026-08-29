@@ -240,7 +240,10 @@ async function ask(question) {
         if (!payload || payload === '[DONE]') continue;
         try {
           const chunk = JSON.parse(payload);
-          if (chunk.response) {
+          // Workers AI 는 숫자만으로 된 토큰을 문자열이 아니라 정수로 보낸다
+          // ({"response": 2024}). falsy 검사를 쓰면 토큰이 0 일 때 사라지므로
+          // null/undefined 만 걸러낸다.
+          if (chunk.response != null) {
             answer += chunk.response;
             bubble.textContent = answer;
             el.log.scrollTop = el.log.scrollHeight;

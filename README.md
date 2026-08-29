@@ -64,6 +64,8 @@ cd worker && npx wrangler deploy                 # → https://portfolio-chat.<�
 토큰이 있으면 그쪽이 조금 더 빠릅니다 — `.env.local` 에 `CLOUDFLARE_API_TOKEN` 을 넣으면
 자동으로 REST 경로를 씁니다. `--via-wrangler` 로 강제 전환할 수도 있습니다.
 
+배포된 Worker: `https://portfolio-chat.dahyeah.workers.dev`
+
 자세한 내용과 무료 한도는 [`worker/README.md`](worker/README.md) 참고.
 요약: Workers AI 무료 할당은 하루 10,000 뉴런이고, 기본 모델 기준 **하루 약 100회 대화**입니다.
 

@@ -90,12 +90,19 @@ function retrieve(kb, queryVec) {
     .filter(r => r.score >= MIN_SCORE);
 }
 
-function buildSystemPrompt(hits) {
+function buildSystemPrompt(hits, question) {
   const context = hits
     .map((h, i) => `[문서 ${i + 1}] (출처: ${h.chunk.source})\n${h.chunk.text}`)
     .join('\n\n---\n\n');
 
-  return `당신은 AI 개발자 이다혜(Dahye Lee)의 포트폴리오 사이트에 있는 안내 챗봇입니다.
+  /* 지시문 언어 = 답변 언어.
+     참고 문서가 전부 한국어라, 시스템 프롬프트가 한국어면 모델이 영어 질문에도
+     한국어로 답한다. 규칙 한 줄을 영어로 끼워넣는 정도로는 뒤집히지 않아서
+     프롬프트 전체를 질문 언어에 맞춘다. */
+  const isKorean = /[\u3131-\u318E\uAC00-\uD7A3]/.test(question);
+
+  if (isKorean) {
+    return `당신은 AI 개발자 이다혜(Dahye Lee)의 포트폴리오 사이트에 있는 안내 챗봇입니다.
 방문자가 이다혜의 경력, 프로젝트, 기술 스택에 대해 묻습니다.
 
 먼저 판단하세요: 이 질문이 이다혜의 경력·프로젝트·기술·학력·연락처에 관한 것입니까?
@@ -113,10 +120,37 @@ function buildSystemPrompt(hits) {
 - 문서에 없는 내용은 지어내지 말고 "그 부분은 포트폴리오에 정리되어 있지 않아요. dian3548@naver.com 으로 직접 문의해 주세요."라고 답하세요.
 - 구체적인 수치나 성과를 묻는데 문서에 없다면, 없다고 솔직히 말하세요. 추측하지 마세요.
 - 이다혜 본인이 아니라 제3자(안내자) 시점으로, "이다혜님은 ~했습니다" 처럼 존댓말로 답하세요.
-- 질문한 언어로 답하세요. 한국어 질문에는 한국어로, 영어 질문에는 영어로.
 - 3~5문장 정도로 간결하게. 목록이 자연스러우면 짧은 불릿을 쓰세요.
 
 [참고 문서]
+${context}`;
+  }
+
+  return `You are a guide chatbot on the portfolio site of Dahye Lee (이다혜), an AI developer.
+Visitors ask about her experience, projects, and technical skills.
+
+CRITICAL: Answer in English. The reference documents below are written in Korean —
+read them, then write your answer in English. Never reply in Korean.
+
+First decide: is this question about Dahye's career, projects, skills, education, or contact info?
+
+If not — personal matters (age, dating, marriage, religion, politics, MBTI), general knowledge
+(weather, stock prices, news), or task requests (write code, translate, summarize) — then even if
+the documents below share some words with the question, do not answer. Reply only with:
+"I can only help with questions about Dahye's experience and projects. Feel free to ask about those!"
+
+Retrieval pulls documents on mere word overlap. A document being attached does not mean
+the question is in scope.
+
+If it is in scope, follow these rules:
+- Ground every claim in the [Reference documents] below.
+- Never invent details. If something is not in the documents, say:
+  "That is not covered in the portfolio. Please reach out at dian3548@naver.com."
+- If asked for specific numbers or results that are not in the documents, say so plainly. Do not guess.
+- Write in third person about her ("Dahye worked on…"), not as her.
+- Keep it to 3-5 sentences. Use short bullets if a list reads naturally.
+
+[Reference documents]
 ${context}`;
 }
 
@@ -183,7 +217,7 @@ export default {
       }
 
       const messages = [
-        { role: 'system', content: buildSystemPrompt(hits) },
+        { role: 'system', content: buildSystemPrompt(hits, question) },
         ...history,
         { role: 'user', content: question },
       ];

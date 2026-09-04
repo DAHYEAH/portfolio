@@ -11,6 +11,8 @@ tags: [OCR, ArUco, 마커, 표검출, 수기인식, 논문, KKITS]
 links:
   - label: GitHub
     url: https://github.com/DAHYEAAAH/OCR
+  - label: 논문 PDF
+    url: files/kkits2023-pigfarm-aruco-ocr.pdf
 ---
 
 # ArUco 마커 기반 현황판 OCR 앱
@@ -34,6 +36,7 @@ Python · Flask · OpenCV · PyTorch · ArUco 마커
 ## 관련 논문
 ArUco 마커와 OCR을 이용한 돈사 현황판 표 추출 및 수기 문자 인식 앱 개발 (KKITS 2023)
 이다혜, 신유정, 안희진, 마하나로, 이인규, 이현빈
+논문 전문 PDF: files/kkits2023-pigfarm-aruco-ocr.pdf (사이트에서 바로 열람/다운로드 가능)
 
 ## 성과
 > 📝 채워넣기: 표 검출 성공률, 문자 인식 정확도, 실제 농장 적용 여부

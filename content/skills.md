@@ -31,4 +31,4 @@ Flutter · Firebase
 ## 언어별 사용 맥락
 - **Python**: 모델 학습·추론, OCR/세그멘테이션 파이프라인, RAG, 워터마킹 신호처리
 - **Java / Spring Boot**: 문서 파싱 시스템 서버
-- **Flutter**: 학부 프로젝트 모바일 앱 (돈사 현황판 OCR 앱, 7-Segment OCR)
+- **Flutter**: 학부 프로젝트 모바일 앱 (돈사 현황판 OCR 앱)

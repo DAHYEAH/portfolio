@@ -1,6 +1,6 @@
 ---
 id: watermarking
-title: 비가시적 이미지 워터마킹
+title: 비가시성 이미지 워터마킹
 title_en: Invisible Image Watermarking
 category: work
 org: 지란소프트
@@ -11,7 +11,7 @@ tags: [워터마킹, 주파수도메인, 신호처리, 강건성, 저작권, 유
 links: []
 ---
 
-# 비가시적 이미지 워터마킹
+# 비가시성 이미지 워터마킹
 
 ## 한 줄 요약
 사람 눈에는 보이지 않지만 이미지가 변형돼도 살아남는 워터마크를 주파수 도메인에 삽입하는 연구.

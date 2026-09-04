@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675"
+     role="img" aria-label="Predicting psychological tendencies of election voters and non-voters from survey responses">
+  <title>Psychological Tendency Prediction — voters vs non-voters</title>
+
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#F6F4FE"/>
+      <stop offset="60%"  stop-color="#EDEAFC"/>
+      <stop offset="100%" stop-color="#E1DCF9"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7B72F7"/>
+      <stop offset="100%" stop-color="#5B52E0"/>
+    </linearGradient>
+    <!-- feDropShadow 미지원 렌더러에서도 카드가 사라지지 않도록 기본 프리미티브로 구성 -->
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="150%">
+      <feOffset in="SourceAlpha" dx="0" dy="10" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#3B3470" flood-opacity=".14" result="col"/>
+      <feComposite in="col" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#pbg)"/>
+  <circle cx="120" cy="80"  r="130" fill="#6C63F5" opacity=".06"/>
+  <circle cx="1120" cy="620" r="150" fill="#9B7CFB" opacity=".07"/>
+
+  <!-- ══ 1. 설문 응답 (MACH-IV · TIPI 리커트 척도) ══ -->
+  <g filter="url(#soft)">
+    <rect x="70" y="96" width="360" height="484" rx="22" fill="#FFFFFF"/>
+  </g>
+
+  <!-- 투표함 아이콘 -->
+  <g transform="translate(104 128)">
+    <rect x="6" y="30" width="58" height="42" rx="6" fill="url(#box)"/>
+    <rect x="0" y="22" width="70" height="16" rx="5" fill="#4B43CC"/>
+    <rect x="22" y="27" width="26" height="6" rx="3" fill="#EDEAFC"/>
+    <g transform="rotate(-14 35 6)">
+      <rect x="17" y="-12" width="36" height="30" rx="4" fill="#FFFFFF" stroke="#C9C3F2" stroke-width="2"/>
+      <path d="M25 3 l6 6 l12 -13" fill="none" stroke="#34C3A8" stroke-width="4"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <text x="190" y="163" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="21" font-weight="800" fill="#262233">Election survey</text>
+  <text x="190" y="187" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="14.5" font-weight="600" fill="#6C63F5">MACH-IV · TIPI · VCL</text>
+
+  <line x1="104" y1="222" x2="396" y2="222" stroke="#E7E3F8" stroke-width="2"/>
+
+  <!-- 리커트 7점 척도 행 -->
+  <g>
+    <g transform="translate(104 250)">
+      <rect x="0" y="-7" width="96" height="12" rx="6" fill="#DCD7F4"/>
+      <g fill="#DCD7F4"><circle cx="126" cy="0" r="7.5"/><circle cx="156" cy="0" r="7.5"/><circle cx="186" cy="0" r="7.5"/><circle cx="216" cy="0" r="7.5"/><circle cx="246" cy="0" r="7.5"/><circle cx="276" cy="0" r="7.5"/></g>
+      <circle cx="216" cy="0" r="10" fill="#6C63F5"/>
+    </g>
+    <g transform="translate(104 296)">
+      <rect x="0" y="-7" width="78" height="12" rx="6" fill="#DCD7F4"/>
+      <g fill="#DCD7F4"><circle cx="126" cy="0" r="7.5"/><circle cx="156" cy="0" r="7.5"/><circle cx="186" cy="0" r="7.5"/><circle cx="216" cy="0" r="7.5"/><circle cx="246" cy="0" r="7.5"/><circle cx="276" cy="0" r="7.5"/></g>
+      <circle cx="276" cy="0" r="10" fill="#6C63F5"/>
+    </g>
+    <g transform="translate(104 342)">
+      <rect x="0" y="-7" width="104" height="12" rx="6" fill="#DCD7F4"/>
+      <g fill="#DCD7F4"><circle cx="126" cy="0" r="7.5"/><circle cx="156" cy="0" r="7.5"/><circle cx="186" cy="0" r="7.5"/><circle cx="216" cy="0" r="7.5"/><circle cx="246" cy="0" r="7.5"/><circle cx="276" cy="0" r="7.5"/></g>
+      <circle cx="156" cy="0" r="10" fill="#6C63F5"/>
+    </g>
+    <g transform="translate(104 388)">
+      <rect x="0" y="-7" width="88" height="12" rx="6" fill="#DCD7F4"/>
+      <g fill="#DCD7F4"><circle cx="126" cy="0" r="7.5"/><circle cx="156" cy="0" r="7.5"/><circle cx="186" cy="0" r="7.5"/><circle cx="216" cy="0" r="7.5"/><circle cx="246" cy="0" r="7.5"/><circle cx="276" cy="0" r="7.5"/></g>
+      <circle cx="246" cy="0" r="10" fill="#6C63F5"/>
+    </g>
+    <g transform="translate(104 434)">
+      <rect x="0" y="-7" width="112" height="12" rx="6" fill="#DCD7F4"/>
+      <g fill="#DCD7F4"><circle cx="126" cy="0" r="7.5"/><circle cx="156" cy="0" r="7.5"/><circle cx="186" cy="0" r="7.5"/><circle cx="216" cy="0" r="7.5"/><circle cx="246" cy="0" r="7.5"/><circle cx="276" cy="0" r="7.5"/></g>
+      <circle cx="186" cy="0" r="10" fill="#6C63F5"/>
+    </g>
+  </g>
+
+  <!-- 어휘 체크리스트 (VCL) -->
+  <line x1="104" y1="470" x2="396" y2="470" stroke="#E7E3F8" stroke-width="2"/>
+  <g transform="translate(104 496)">
+    <g fill="none" stroke="#B9B1EC" stroke-width="2.5">
+      <rect x="0"   y="0" width="19" height="19" rx="5"/>
+      <rect x="98"  y="0" width="19" height="19" rx="5"/>
+      <rect x="196" y="0" width="19" height="19" rx="5"/>
+      <rect x="0"   y="34" width="19" height="19" rx="5"/>
+      <rect x="98"  y="34" width="19" height="19" rx="5"/>
+      <rect x="196" y="34" width="19" height="19" rx="5"/>
+    </g>
+    <g fill="#34C3A8">
+      <rect x="0"   y="0"  width="19" height="19" rx="5"/>
+      <rect x="196" y="0"  width="19" height="19" rx="5"/>
+      <rect x="98"  y="34" width="19" height="19" rx="5"/>
+    </g>
+    <g fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 10 l4 4 l7 -8"/>
+      <path d="M201 10 l4 4 l7 -8"/>
+      <path d="M103 44 l4 4 l7 -8"/>
+    </g>
+    <g fill="#8C86AD" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600">
+      <text x="27"  y="15">lucid</text>
+      <text x="125" y="15">pallid</text>
+      <text x="223" y="15">abysmal</text>
+      <text x="27"  y="49">paucity</text>
+      <text x="125" y="49">robot</text>
+      <text x="223" y="49">pastiche</text>
+    </g>
+  </g>
+
+  <!-- ══ 화살표 ══ -->
+  <g stroke="#6C63F5" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".55">
+    <path d="M452 338 L508 338"/>
+    <path d="M492 324 L508 338 L492 352"/>
+    <path d="M700 338 L756 338"/>
+    <path d="M740 324 L756 338 L740 352"/>
+  </g>
+
+  <!-- ══ 2. 앙상블 모델 ══ -->
+  <g filter="url(#soft)">
+    <rect x="530" y="176" width="150" height="324" rx="20" fill="#262233"/>
+  </g>
+  <text x="605" y="212" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="14" font-weight="800" letter-spacing="1.4" fill="#9B93FF">ENSEMBLE</text>
+
+  <!-- 결정 트리 3그루 -->
+  <g stroke="#5D5580" stroke-width="2.5" fill="none">
+    <path d="M605 250 L575 282 M605 250 L635 282 M575 282 L558 312 M575 282 L592 312 M635 282 L618 312 M635 282 L652 312"/>
+    <path d="M605 350 L575 382 M605 350 L635 382 M575 382 L558 412 M575 382 L592 412 M635 382 L618 412 M635 382 L652 412"/>
+  </g>
+  <g fill="#6C63F5">
+    <circle cx="605" cy="250" r="9"/><circle cx="575" cy="282" r="7"/><circle cx="635" cy="282" r="7"/>
+    <circle cx="605" cy="350" r="9"/><circle cx="575" cy="382" r="7"/><circle cx="635" cy="382" r="7"/>
+  </g>
+  <g fill="#34C3A8">
+    <circle cx="558" cy="312" r="6"/><circle cx="592" cy="312" r="6"/>
+    <circle cx="618" cy="312" r="6"/><circle cx="652" cy="312" r="6"/>
+    <circle cx="558" cy="412" r="6"/><circle cx="592" cy="412" r="6"/>
+    <circle cx="618" cy="412" r="6"/><circle cx="652" cy="412" r="6"/>
+  </g>
+  <text x="605" y="462" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="13.5" font-weight="700" fill="#B8B2D8">RandomForest</text>
+
+  <!-- ══ 3. 성향 프로파일 (레이더) ══ -->
+  <g filter="url(#soft)">
+    <rect x="778" y="96" width="352" height="484" rx="22" fill="#FFFFFF"/>
+  </g>
+  <text x="954" y="146" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="21" font-weight="800" fill="#262233">Trait profile</text>
+
+  <g transform="translate(4 22)">
+    <!-- 격자 -->
+    <g fill="none" stroke="#E7E3F8" stroke-width="2">
+      <polygon points="950,200 1073.6,289.8 1026.4,435.2 873.6,435.2 826.4,289.8"/>
+      <polygon points="950,243 1032.7,303.1 1001.1,400.4 898.9,400.4 867.3,303.1"/>
+      <polygon points="950,287 990.9,316.7 975.3,378.8 924.7,378.8 909.1,316.7"/>
+      <path d="M950 330 L950 200 M950 330 L1073.6 289.8 M950 330 L1026.4 435.2
+               M950 330 L873.6 435.2 M950 330 L826.4 289.8"/>
+    </g>
+
+    <!-- 미투표자 -->
+    <polygon points="950,271.5 1058.8,294.6 980.6,372.1 892.7,408.9 882,307.9"
+             fill="#34C3A8" fill-opacity=".22" stroke="#34C3A8" stroke-width="3.5" stroke-linejoin="round"/>
+    <!-- 투표자 -->
+    <polygon points="950,219.5 1026.6,305.1 1009.6,412 911.8,382.6 838.7,293.8"
+             fill="#6C63F5" fill-opacity=".22" stroke="#6C63F5" stroke-width="3.5" stroke-linejoin="round"/>
+    <g fill="#6C63F5">
+      <circle cx="950" cy="219.5" r="5"/><circle cx="1026.6" cy="305.1" r="5"/>
+      <circle cx="1009.6" cy="412" r="5"/><circle cx="911.8" cy="382.6" r="5"/>
+      <circle cx="838.7" cy="293.8" r="5"/>
+    </g>
+
+    <!-- 축 이름 -->
+    <g font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#8C86AD">
+      <text x="950"  y="184" text-anchor="middle">Openness</text>
+      <text x="1092" y="286" text-anchor="start">Extra&#8203;version</text>
+      <text x="1034" y="458" text-anchor="middle">Conscien.</text>
+      <text x="866"  y="458" text-anchor="middle">Agreeable.</text>
+      <text x="812"  y="286" text-anchor="end">Stability</text>
+    </g>
+  </g>
+
+  <!-- 범례 -->
+  <g transform="translate(830 528)">
+    <rect x="0" y="0" width="14" height="14" rx="4" fill="#6C63F5"/>
+    <text x="24" y="12" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+          font-size="14" font-weight="700" fill="#4A4460">Voted</text>
+    <rect x="150" y="0" width="14" height="14" rx="4" fill="#34C3A8"/>
+    <text x="174" y="12" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+          font-size="14" font-weight="700" fill="#4A4460">Did not vote</text>
+  </g>
+</svg>

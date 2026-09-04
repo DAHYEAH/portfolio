@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675"
+     role="img" aria-label="Document parsing: multi-format input, element-level de-identification, and layout-preserving reconstruction">
+  <title>Document Parsing &amp; De-identification</title>
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6F4FE"/><stop offset="60%" stop-color="#EDEAFC"/><stop offset="100%" stop-color="#E1DCF9"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="150%">
+      <feOffset in="SourceAlpha" dx="0" dy="10" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#3B3470" flood-opacity=".14" result="col"/>
+      <feComposite in="col" in2="blur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#pbg)"/>
+  <circle cx="110" cy="70"  r="130" fill="#6C63F5" opacity=".06"/>
+  <circle cx="1130" cy="630" r="150" fill="#9B7CFB" opacity=".07"/>
+
+  <g stroke="#6C63F5" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".55">
+    <path d="M398 338 L432 338"/><path d="M418 326 L432 338 L418 350"/>
+    <path d="M778 338 L812 338"/><path d="M798 326 L812 338 L798 350"/>
+  </g>
+
+  <!-- ══ A. 다중 포맷 입력 ══ -->
+  <g filter="url(#soft)"><rect x="60" y="110" width="330" height="456" rx="22" fill="#FFFFFF"/></g>
+  <text x="92" y="158" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" fill="#262233">Any format</text>
+  <text x="92" y="181" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#6C63F5" letter-spacing=".6">OOXML · PDF · HWP · ODT</text>
+
+  <g font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+    <!-- DOCX -->
+    <g transform="translate(92 210)">
+      <rect x="0" y="0" width="266" height="66" rx="12" fill="#FBFAFF" stroke="#E7E3F8" stroke-width="2"/>
+      <rect x="16" y="14" width="38" height="38" rx="9" fill="#6C63F5"/>
+      <text x="35" y="39" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF">W</text>
+      <text x="68" y="30" font-size="14.5" font-weight="800" fill="#262233">OOXML</text>
+      <text x="68" y="49" font-size="12" font-weight="600" fill="#8C86AD">docx · pptx · xlsx</text>
+    </g>
+    <!-- PDF -->
+    <g transform="translate(92 288)">
+      <rect x="0" y="0" width="266" height="66" rx="12" fill="#FBFAFF" stroke="#E7E3F8" stroke-width="2"/>
+      <rect x="16" y="14" width="38" height="38" rx="9" fill="#9B7CFB"/>
+      <text x="35" y="39" text-anchor="middle" font-size="10.5" font-weight="800" fill="#FFFFFF">PDF</text>
+      <text x="68" y="30" font-size="14.5" font-weight="800" fill="#262233">PDF</text>
+      <text x="68" y="49" font-size="12" font-weight="600" fill="#8C86AD">텍스트 · 스캔본</text>
+    </g>
+    <!-- 한컴 -->
+    <g transform="translate(92 366)">
+      <rect x="0" y="0" width="266" height="66" rx="12" fill="#FBFAFF" stroke="#E7E3F8" stroke-width="2"/>
+      <rect x="16" y="14" width="38" height="38" rx="9" fill="#34C3A8"/>
+      <text x="35" y="39" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">한</text>
+      <text x="68" y="30" font-size="14.5" font-weight="800" fill="#262233">한컴 문서</text>
+      <text x="68" y="49" font-size="12" font-weight="600" fill="#8C86AD">hwp · hwpx</text>
+    </g>
+    <!-- ODT -->
+    <g transform="translate(92 444)">
+      <rect x="0" y="0" width="266" height="66" rx="12" fill="#FBFAFF" stroke="#E7E3F8" stroke-width="2"/>
+      <rect x="16" y="14" width="38" height="38" rx="9" fill="#5B52E0"/>
+      <text x="35" y="39" text-anchor="middle" font-size="10.5" font-weight="800" fill="#FFFFFF">ODT</text>
+      <text x="68" y="30" font-size="14.5" font-weight="800" fill="#262233">ODT</text>
+      <text x="68" y="49" font-size="12" font-weight="600" fill="#8C86AD">OpenDocument</text>
+    </g>
+  </g>
+
+  <!-- ══ B. 요소 단위 비식별화 ══ -->
+  <g filter="url(#soft)"><rect x="440" y="110" width="330" height="456" rx="22" fill="#FFFFFF"/></g>
+  <text x="472" y="158" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" fill="#262233">Every element</text>
+  <text x="472" y="181" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#6C63F5" letter-spacing=".6">본문 · 표 · 차트 · 도형 · 이미지 OCR</text>
+
+  <rect x="472" y="204" width="266" height="306" rx="10" fill="#FBFAFF" stroke="#E7E3F8" stroke-width="2"/>
+  <!-- 본문 -->
+  <g fill="#DBD6F3">
+    <rect x="492" y="226" width="150" height="9" rx="4.5"/>
+    <rect x="492" y="246" width="188" height="8" rx="4"/>
+  </g>
+  <rect x="492" y="264" width="86" height="12" rx="4" fill="#262233"/>
+  <rect x="588" y="265" width="92" height="8" rx="4" fill="#DBD6F3"/>
+  <!-- 표 -->
+  <g>
+    <rect x="492" y="296" width="188" height="70" rx="6" fill="#FFFFFF" stroke="#CFC8F0" stroke-width="2"/>
+    <g stroke="#CFC8F0" stroke-width="1.8"><path d="M492 319 H680 M492 342 H680 M556 296 V366 M620 296 V366"/></g>
+    <rect x="502" y="304" width="42" height="7" rx="3.5" fill="#DBD6F3"/>
+    <rect x="566" y="304" width="42" height="7" rx="3.5" fill="#DBD6F3"/>
+    <rect x="630" y="326" width="40" height="10" rx="3" fill="#262233"/>
+    <rect x="502" y="327" width="44" height="7" rx="3.5" fill="#DBD6F3"/>
+    <rect x="502" y="350" width="36" height="10" rx="3" fill="#262233"/>
+    <rect x="566" y="350" width="42" height="7" rx="3.5" fill="#DBD6F3"/>
+  </g>
+  <!-- 차트 -->
+  <g transform="translate(492 384)">
+    <rect x="0" y="0" width="86" height="72" rx="8" fill="#FFFFFF" stroke="#CFC8F0" stroke-width="2"/>
+    <g fill="#9B7CFB"><rect x="14" y="38" width="12" height="22" rx="3"/><rect x="34" y="24" width="12" height="36" rx="3"/><rect x="54" y="32" width="12" height="28" rx="3"/></g>
+    <rect x="14" y="10" width="34" height="8" rx="3" fill="#262233"/>
+  </g>
+  <!-- 도형 / 텍스트박스 -->
+  <g transform="translate(594 384)">
+    <rect x="0" y="0" width="86" height="72" rx="8" fill="#EFEBFD" stroke="#CFC8F0" stroke-width="2" stroke-dasharray="6 4"/>
+    <rect x="14" y="18" width="46" height="10" rx="3" fill="#262233"/>
+    <rect x="14" y="38" width="58" height="7" rx="3.5" fill="#CFC8F0"/>
+    <text x="43" y="66" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+          font-size="10" font-weight="800" fill="#9B93C9">textbox</text>
+  </g>
+  <!-- 이미지 OCR -->
+  <g transform="translate(492 470)">
+    <rect x="0" y="0" width="188" height="26" rx="7" fill="#6C63F5" opacity=".12"/>
+    <circle cx="19" cy="13" r="8" fill="#6C63F5"/>
+    <path d="M15 13 l3 3 l6 -7" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="36" y="17" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="800" fill="#5B52E0">이미지 속 글자도 OCR → 마스킹</text>
+  </g>
+  <text x="605" y="536" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="12.5" font-weight="700" fill="#8C86AD">■ = 비식별 처리된 개인정보</text>
+
+  <!-- ══ C. 원본 서식 그대로 재조립 ══ -->
+  <g filter="url(#soft)"><rect x="820" y="110" width="330" height="456" rx="22" fill="#262233"/></g>
+  <text x="852" y="158" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">Rebuilt</text>
+  <text x="852" y="181" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#9B93FF" letter-spacing=".6">layout preserved</text>
+
+  <!-- 결과 문서 -->
+  <rect x="852" y="206" width="266" height="242" rx="10" fill="#F6F4FE"/>
+  <g fill="#CFC8F0">
+    <rect x="872" y="228" width="150" height="9" rx="4.5"/>
+    <rect x="872" y="248" width="188" height="8" rx="4"/>
+  </g>
+  <rect x="872" y="266" width="86" height="12" rx="4" fill="#4A4468"/>
+  <rect x="968" y="267" width="92" height="8" rx="4" fill="#CFC8F0"/>
+  <g>
+    <rect x="872" y="296" width="188" height="62" rx="6" fill="#FFFFFF" stroke="#DCD7F4" stroke-width="2"/>
+    <g stroke="#DCD7F4" stroke-width="1.8"><path d="M872 317 H1060 M872 338 H1060 M936 296 V358 M1000 296 V358"/></g>
+    <rect x="882" y="303" width="42" height="7" rx="3.5" fill="#DCD7F4"/>
+    <rect x="946" y="303" width="42" height="7" rx="3.5" fill="#DCD7F4"/>
+    <rect x="1010" y="324" width="40" height="9" rx="3" fill="#4A4468"/>
+    <rect x="882" y="345" width="36" height="9" rx="3" fill="#4A4468"/>
+    <rect x="946" y="346" width="42" height="7" rx="3.5" fill="#DCD7F4"/>
+  </g>
+  <g transform="translate(872 372)">
+    <rect x="0" y="0" width="86" height="58" rx="7" fill="#FFFFFF" stroke="#DCD7F4" stroke-width="2"/>
+    <g fill="#B9B1EC"><rect x="14" y="28" width="12" height="18" rx="3"/><rect x="34" y="18" width="12" height="28" rx="3"/><rect x="54" y="24" width="12" height="22" rx="3"/></g>
+    <rect x="14" y="8" width="34" height="7" rx="3" fill="#4A4468"/>
+  </g>
+  <g transform="translate(974 372)">
+    <rect x="0" y="0" width="86" height="58" rx="7" fill="#EFEBFD" stroke="#DCD7F4" stroke-width="2" stroke-dasharray="6 4"/>
+    <rect x="14" y="16" width="46" height="9" rx="3" fill="#4A4468"/>
+    <rect x="14" y="34" width="58" height="6" rx="3" fill="#DCD7F4"/>
+  </g>
+
+  <!-- 검증 배지 -->
+  <g transform="translate(852 476)">
+    <rect x="0" y="0" width="266" height="58" rx="12" fill="#332E4A"/>
+    <circle cx="30" cy="29" r="14" fill="#34C3A8"/>
+    <path d="M23 29 l5 5 l9 -10" fill="none" stroke="#262233" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="56" y="25" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="800" fill="#E6E3F5">서식 깨짐 없이 재조립</text>
+    <text x="56" y="45" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#8E88B5">Java · Spring Boot</text>
+  </g>
+</svg>

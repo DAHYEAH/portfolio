@@ -110,7 +110,7 @@
             </div>
             <div class="about-meta-item">
               <div class="label" data-i18n="about.qual.label">Certifications</div>
-              <div class="value" data-i18n="about.qual.value">AICE Professional · Engineer Information Processing · TOEIC 820</div>
+              <div class="value" data-i18n="about.qual.value">AICE Professional · Engineer Information Processing · TOEIC 820 · TOEIC Speaking IH</div>
             </div>
           </div>
         </div>
@@ -159,14 +159,6 @@
         <p class="section-label" data-i18n="section.academic">Academic Projects</p>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-date">2023.03 — 2023.09</div>
-            <div class="timeline-content">
-              <h3 data-i18n="acad2.company">U-RE, Korea</h3>
-              <h4 data-i18n="acad2.role">Walking Robot Stability Control Algorithm</h4>
-              <p data-i18n="acad2.desc">Simulation-based reinforcement learning control algorithm for walking robot stability. Object detection with YOLO.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
             <div class="timeline-date">2022.04 — 2023.02</div>
             <div class="timeline-content">
               <h3 data-i18n="acad1.company">Gfarm (agricultural corporation)</h3>
@@ -204,7 +196,7 @@
       <div class="projects-grid">
         <article class="project-card">
           <div class="project-thumb" data-fallback="DU">
-            <img src="images/proj-document-understanding.png" alt=""
+            <img src="images/proj-document-understanding.svg" alt=""
                  onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
           </div>
           <div class="project-body">
@@ -221,7 +213,7 @@
 
         <article class="project-card">
           <div class="project-thumb" data-fallback="RAG">
-            <img src="images/proj-rag.png" alt=""
+            <img src="images/proj-rag.svg" alt=""
                  onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
           </div>
           <div class="project-body">
@@ -238,7 +230,7 @@
 
         <article class="project-card">
           <div class="project-thumb" data-fallback="DP">
-            <img src="images/proj-document-parsing.png" alt=""
+            <img src="images/proj-document-parsing.svg" alt=""
                  onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
           </div>
           <div class="project-body">
@@ -254,7 +246,7 @@
 
         <article class="project-card">
           <div class="project-thumb" data-fallback="WM">
-            <img src="images/proj-watermarking.png" alt=""
+            <img src="images/proj-watermarking.svg" alt=""
                  onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
           </div>
           <div class="project-body">
@@ -275,21 +267,6 @@
         </div>
 
         <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-thumb" data-fallback="RL">
-              <img src="images/proj-walking-robot.png" alt=""
-                   onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
-            </div>
-            <div class="project-body">
-              <div class="project-period" data-i18n="proj0.period">2023.03 — 2023.09 · U-RE, Korea</div>
-              <h3 data-i18n="proj0.title">Walking Robot Stability Control Algorithm</h3>
-              <p data-i18n="proj0.desc">Simulation-based reinforcement learning control algorithm for walking stability. Object detection with YOLO.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span><span class="tech-tag">YOLO</span>
-                <span class="tech-tag">Object Detection</span><span class="tech-tag">Reinforcement Learning</span>
-              </div>
-            </div>
-          </article>
 
           <article class="project-card">
             <div class="project-thumb" data-fallback="OCR">
@@ -309,22 +286,6 @@
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-thumb" data-fallback="7SEG">
-              <img src="images/proj-7segment.png" alt=""
-                   onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
-            </div>
-            <div class="project-body">
-              <div class="project-period" data-i18n="proj2.period">2023.03 — 2023.05</div>
-              <h3 data-i18n="proj2.title">7-Segment Display OCR</h3>
-              <p data-i18n="proj2.desc">OCR model for 7-segment numeric displays. Edge detection pipeline to locate status boards via mobile camera.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span><span class="tech-tag">PARSeq</span>
-                <span class="tech-tag">OpenCV</span><span class="tech-tag">Flutter</span>
-              </div>
-              <a href="https://github.com/DAHYEAH/7SegmentProject" class="project-link" target="_blank" rel="noopener">GitHub →</a>
-            </div>
-          </article>
 
           <article class="project-card">
             <div class="project-thumb" data-fallback="ARUCO">
@@ -339,7 +300,10 @@
                 <span class="tech-tag">Python</span><span class="tech-tag">Flask</span>
                 <span class="tech-tag">OpenCV</span><span class="tech-tag">PyTorch</span>
               </div>
-              <a href="https://github.com/DAHYEAAAH/OCR" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+              <div class="project-links">
+                <a href="https://github.com/DAHYEAAAH/OCR" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+                <a href="files/kkits2023-pigfarm-aruco-ocr.pdf" class="project-link" target="_blank" rel="noopener" data-i18n="proj3.paper">Paper (PDF) ↓</a>
+              </div>
             </div>
           </article>
         </div>
@@ -365,13 +329,16 @@
               <div class="tech-tags">
                 <span class="tech-tag">Python</span><span class="tech-tag">UNet</span><span class="tech-tag">Docker</span>
               </div>
-              <a href="https://www.notion.so/DACON-2023-SW-AI-e23aaab8a2374c808740e206e5121fd0" class="project-link" target="_blank" rel="noopener">Notion →</a>
+              <div class="project-links">
+                <a href="https://www.notion.so/DACON-2023-SW-AI-e23aaab8a2374c808740e206e5121fd0" class="project-link" target="_blank" rel="noopener">Notion →</a>
+                <a href="files/2023-sw-ai-competition-satellite-segmentation.pptx" class="project-link" download data-i18n="contest1.slides">Presentation slides (PPTX) ↓</a>
+              </div>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-thumb" data-fallback="ML">
-              <img src="images/proj-psych.png" alt=""
+              <img src="images/proj-psych.svg" alt=""
                    onerror="this.closest('.project-thumb').classList.add('no-image'); this.remove();">
             </div>
             <div class="project-body">
@@ -393,6 +360,7 @@
           <div class="pub-venue" data-i18n="pub1.venue">KKITS 2023</div>
           <p class="pub-title" data-i18n="pub1.title">Development of an Application for Table Extraction and Handwritten Character Recognition on Pig Farm Status Boards Using ArUco Marker and OCR</p>
           <p class="pub-authors" data-i18n="pub1.authors">Dahye Lee, Yujeong Shin, Heejin Ahn, Hanaro Ma, Ingyu Lee, Hyunbean Yi</p>
+          <a href="files/kkits2023-pigfarm-aruco-ocr.pdf" class="project-link" target="_blank" rel="noopener" data-i18n="pub1.pdf">Read the paper (PDF) ↓</a>
         </div>
       </div>
     </div>

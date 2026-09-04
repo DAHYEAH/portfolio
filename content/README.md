@@ -17,9 +17,7 @@ content/
     ├── 02-rag-pipeline.md             지란소프트 · 2024.07–2024.10
     ├── 03-document-parsing.md         지란소프트 · 2026.01–현재
     ├── 04-invisible-watermarking.md   지란소프트 · 2026.06–현재
-    ├── 05-walking-robot-rl.md         U-RE · 2023.03–2023.09
     ├── 06-pigfarm-handwriting-ocr.md  캡스톤 · 2023.01–2023.12
-    ├── 07-7segment-ocr.md             학부 · 2023.03–2023.05
     ├── 08-aruco-ocr-app.md            지팜 산학 · 2022.01–2022.12
     ├── 09-satellite-segmentation.md   대회 수상 · 2023.08
     └── 10-psychological-prediction.md 대회 · 2022.08

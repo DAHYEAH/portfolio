@@ -12,6 +12,8 @@ tags: [세그멘테이션, UNet, 위성이미지, 대회, 수상, DACON, 건물�
 links:
   - label: Notion
     url: https://www.notion.so/DACON-2023-SW-AI-e23aaab8a2374c808740e206e5121fd0
+  - label: 결과 발표자료 (PPTX)
+    url: files/2023-sw-ai-competition-satellite-segmentation.pptx
 ---
 
 # 위성 이미지 건물 영역 분할

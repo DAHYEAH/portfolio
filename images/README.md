@@ -4,24 +4,18 @@
 없으면 그라디언트나 약어가 대신 보이고, 파일을 넣으면 자동으로 교체됩니다.
 경로와 파일명만 맞추면 됩니다.
 
-## 생성해야 할 이미지
-
-| 파일 | 쓰이는 곳 | 권장 크기 | 없을 때 |
-|---|---|---|---|
-| `proj-document-understanding.png` | 문서 이해 모델 | 1200×675 (16:9) | `DU` |
-| `proj-rag.png` | RAG 파이프라인 | 1200×675 | `RAG` |
-| `proj-document-parsing.png` | 문서 파싱 시스템 | 1200×675 | `DP` |
-| `proj-watermarking.png` | 비가시적 워터마킹 | 1200×675 | `WM` |
-| `proj-walking-robot.png` | 보행 로봇 제어 | 1200×675 | `RL` |
-| `proj-psych.png` | 심리 성향 예측 | 1200×675 | `ML` |
-
 ## 이미 있는 것
 
 ### 직접 그린 SVG
 
 | 파일 | 내용 |
 |---|---|
-| `profile.svg` | About 프로필 — 플랫 벡터 일러스트 아바타 |
+| `profile.svg` | About 프로필 — 노트북 앞에 앉은 개발자 아바타 (플랫 벡터) |
+| `proj-psych.svg` | 심리 성향 예측 — 설문(MACH-IV·TIPI·VCL) → 앙상블 → 투표/미투표 성향 레이더 |
+| `proj-document-understanding.svg` | 문서 이해 — OCR 인식 박스 → 표 구조 인식 → TensorRT/Triton 서빙 |
+| `proj-rag.svg` | RAG — 질문·청킹 → FAISS top-k 검색 → 근거 인용 답변 |
+| `proj-document-parsing.svg` | 문서 파싱 — 포맷별 입력 → 요소 단위 비식별화 → 서식 유지 재조립 |
+| `proj-watermarking.svg` | 비가시성 워터마킹 — 원본 → 주파수 대역 삽입 → 변환 공격 강건성 |
 | `hero.svg` | 히어로 배경 — 추상 그라디언트 + 문서/노드 그래프 모티프 |
 
 SVG라 해상도에 상관없이 선명하고 파일이 작습니다.
@@ -36,13 +30,10 @@ SVG라 해상도에 상관없이 선명하고 파일이 작습니다.
 | 파일 | 내용 |
 |---|---|
 | `proj-aruco.png` | ArUco 마커 검출 → 왜곡 보정 과정 |
-| `proj-7segment.png` | 7-segment OCR 과정 (Edge Detection → OpenCV → CNN) |
 | `proj-capstone.png` | 앱 ↔ 서버 풀스택 구조도 |
 | `proj-satellite.jpg` | 위성 이미지 |
 
-> ⚠️ 원래 파일명(`labproj` / `capstone` / `7segmentproj`)이 실제 내용과 어긋나 있어
-> 내용 기준으로 이름을 바꿨습니다. **`proj-7segment` 와 `proj-capstone` 의 배치는
-> 한 번 확인해 주세요** — 둘 다 7-segment 관련이라 그림만으로는 확실하지 않았습니다.
+> 원래 파일명(`labproj` / `capstone`)이 실제 내용과 어긋나 있어 내용 기준으로 이름을 바꿨습니다.
 >
 > `_` 로 시작하는 파일은 사용하지 않습니다.
 

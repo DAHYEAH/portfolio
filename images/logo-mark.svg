@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dahye Lee monogram">
+  <defs>
+    <linearGradient id="bg" x1="9" y1="6" x2="56" y2="59" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#978DFF"/>
+      <stop offset=".48" stop-color="#6C63F5"/>
+      <stop offset="1" stop-color="#4539C9"/>
+    </linearGradient>
+    <linearGradient id="line" x1="17" y1="17" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#E7E4FF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#332A9E" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <path fill="url(#bg)" filter="url(#shadow)" d="M32 3C44.7 3 55.2 12.2 57.4 24.2c2.4 13.3-5.5 27.5-18 33.3-5.5 2.5-12 2.2-17.4-.6C10.5 51 4 37.3 6.9 24.7 9.5 12.5 19.5 3 32 3Z"/>
+  <path fill="none" stroke="url(#line)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" d="M19 18v28h8.5c10.3 0 17.5-4.9 17.5-14s-7.2-14-17.5-14H19Zm0 28h28"/>
+  <circle cx="48.5" cy="16" r="3.5" fill="#C8C2FF"/>
+</svg>

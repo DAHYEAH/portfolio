@@ -3,7 +3,7 @@ id: watermarking
 title: 비가시성 이미지 워터마킹
 title_en: Invisible Image Watermarking
 category: work
-org: 지란소프트
+org: 지란지교소프트
 period: 2026.06 — 현재
 role: AI 개발자 (연구)
 tech: [Python, Signal Processing, Frequency Domain]

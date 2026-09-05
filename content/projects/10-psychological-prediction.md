@@ -3,12 +3,14 @@ id: psych-prediction
 title: 심리 성향 예측
 title_en: Psychological Tendency Prediction
 category: competition
-org: SW 중심대학 AI 경진대회
+org: SW 중심대학 AI 경진대회 (DACON)
 period: 2022.08
 role: 데이터 분석 · 모델링
 tech: [Python, RandomForest, Ensemble, Google Colab]
 tags: [머신러닝, 앙상블, 랜덤포레스트, 정형데이터, 대회, 심리, 선거, 투표, MACH-IV, TIPI, 설문]
 links:
+  - label: DACON 대회 페이지
+    url: https://dacon.io/competitions/official/235902/overview/description
   - label: GitHub
     url: https://github.com/DAHYEAH/SW_AI_CONTEST
 ---

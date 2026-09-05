@@ -59,3 +59,48 @@ if (sections.length) {
 
   sections.forEach(s => observer.observe(s));
 }
+
+/* ── 프로젝트 이미지 갤러리 ── */
+document.querySelectorAll('[data-carousel]').forEach(carousel => {
+  const track  = carousel.querySelector('.carousel-track');
+  const slides = [...carousel.querySelectorAll('.carousel-slide')];
+  const prev   = carousel.querySelector('.carousel-prev');
+  const next   = carousel.querySelector('.carousel-next');
+  const dots   = carousel.querySelector('.carousel-dots');
+  const count  = carousel.querySelector('.carousel-count');
+  let index = 0;
+  let frame;
+
+  slides.forEach((_, slideIndex) => {
+    const dot = document.createElement('span');
+    dot.className = 'carousel-dot';
+    dot.dataset.index = slideIndex;
+    dots.append(dot);
+  });
+
+  function update(nextIndex) {
+    index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+    [...dots.children].forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
+    count.textContent = `${index + 1} / ${slides.length}`;
+    prev.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+  }
+
+  function goTo(nextIndex) {
+    update(nextIndex);
+    track.scrollTo({ left: track.clientWidth * index, behavior: 'smooth' });
+  }
+
+  prev.addEventListener('click', () => goTo(index - 1));
+  next.addEventListener('click', () => goTo(index + 1));
+  track.addEventListener('scroll', () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => update(Math.round(track.scrollLeft / track.clientWidth)));
+  }, { passive: true });
+  carousel.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') goTo(index - 1);
+    if (event.key === 'ArrowRight') goTo(index + 1);
+  });
+
+  update(0);
+});

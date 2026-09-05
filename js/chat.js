@@ -11,14 +11,19 @@ const UI = {
     prompt:      '이다혜의 경력과 프로젝트에 대해 물어보세요',
     placeholder: '무엇이 궁금하신가요?',
     send:        '보내기',
+    reset:       '처음으로',
     sources:     '참고',
     thinking:    '찾아보는 중',
     foot:        'content/ 의 문서를 검색해 답합니다 · 문서에 없는 내용은 답하지 않습니다',
     suggestions: [
-      'RAG 경험이 있나요?',
-      '어떤 프로젝트를 했나요?',
-      '기술 스택이 어떻게 되나요?',
-      '수상 경력이 있나요?',
+      'OCR/TSR 프로젝트 경험을 소개해 주세요.',
+      'RAG 프로젝트에서는 어떤 경험을 했나요?',
+      '문서 파싱 프로젝트에서 무엇을 담당했나요?',
+      '학부 연구 활동에는 어떤 것들이 있나요?',
+      '제1저자 논문에 대해 소개해 주세요.',
+      '현재 관심 있는 연구·기술 분야는 무엇인가요?',
+      'DACON 대회에서는 어떤 성과를 냈나요?',
+      '주요 기술 스택과 강점은 무엇인가요?',
     ],
     errors: {
       rate:    '질문이 너무 빨라요. 잠시 후 다시 시도해 주세요.',
@@ -31,14 +36,19 @@ const UI = {
     prompt:      "Ask about Dahye's experience and projects",
     placeholder: 'What would you like to know?',
     send:        'Send',
+    reset:       'Start over',
     sources:     'Sources',
     thinking:    'Looking it up',
     foot:        'Answers are retrieved from the documents in content/ — nothing outside them.',
     suggestions: [
-      'Does she have RAG experience?',
-      'What projects has she worked on?',
-      'What is her tech stack?',
-      'Has she won any awards?',
+      'Tell me about her OCR/TSR project experience.',
+      'What experience does she have with RAG projects?',
+      'What was her role in the document parsing project?',
+      'What undergraduate research activities did she pursue?',
+      'Tell me about her first-author paper.',
+      'What research and technology areas interest her?',
+      'What did she achieve in the DACON competitions?',
+      'What are her main technical skills and strengths?',
     ],
     errors: {
       rate:    'Too many questions at once. Please try again shortly.',
@@ -63,6 +73,7 @@ if (mount) {
       <p class="chat-prompt">
         <span class="chat-prompt-dot" aria-hidden="true"></span>
         <span class="chat-prompt-text"></span>
+        <button class="chat-reset" type="button" hidden></button>
       </p>
 
       <div class="chat-log" role="log" aria-live="polite"></div>
@@ -91,6 +102,7 @@ const el = mount ? {
   form:        mount.querySelector('.chat-form'),
   input:       mount.querySelector('.chat-input'),
   send:        mount.querySelector('.chat-send'),
+  reset:       mount.querySelector('.chat-reset'),
   foot:        mount.querySelector('.chat-foot'),
 } : null;
 
@@ -101,6 +113,8 @@ function applyChatLang() {
   el.promptText.textContent = s.prompt;
   el.input.placeholder      = s.placeholder;
   el.send.setAttribute('aria-label', s.send);
+  el.reset.textContent       = s.reset;
+  el.reset.setAttribute('aria-label', s.reset);
   el.foot.textContent       = s.foot;
 
   el.suggestions.innerHTML = '';
@@ -162,6 +176,19 @@ function addSources(sources) {
   el.log.scrollTop = el.log.scrollHeight;
 }
 
+/* ── 첫 추천 질문 화면으로 돌아가기 ── */
+function resetChat() {
+  if (!el || state.busy) return;
+  state.started = false;
+  state.history = [];
+  el.log.replaceChildren();
+  el.log.classList.remove('active');
+  el.suggestions.hidden = false;
+  el.input.value = '';
+  el.reset.hidden = true;
+  el.input.focus();
+}
+
 /* ── 질의 ── */
 async function ask(question) {
   if (!el || state.busy) return;
@@ -170,6 +197,7 @@ async function ask(question) {
   if (!state.started) {
     state.started = true;
     el.log.classList.add('active');
+    el.reset.hidden = false;
   }
   el.suggestions.hidden = true;
 
@@ -267,6 +295,8 @@ async function ask(question) {
 }
 
 if (el) {
+  el.reset.addEventListener('click', resetChat);
+
   el.form.addEventListener('submit', e => {
     e.preventDefault();
     const q = el.input.value.trim();

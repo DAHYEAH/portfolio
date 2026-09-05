@@ -24,6 +24,7 @@ const MAX_CHARS = 1200;   // 청크 최대 길이
 const MIN_CHARS = 80;     // 이보다 짧은 섹션은 앞 청크에 합침
 const BATCH = 20;         // 임베딩 배치 크기
 const PRECISION = 5;      // 벡터 소수점 자리수 (파일 크기 절감)
+const NPX = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 
 /* ── .env.local 로드 (의존성 없이) ── */
 async function loadEnv() {
@@ -43,7 +44,7 @@ async function loadEnv() {
    굳이 대시보드에서 찾아 복붙할 이유가 없다. */
 async function detectAccountId() {
   try {
-    const { stdout } = await promisify(execFile)('npx', ['--no-install', 'wrangler', 'whoami'], {
+    const { stdout } = await promisify(execFile)(NPX, ['--no-install', 'wrangler', 'whoami'], {
       cwd: join(ROOT, 'worker'),
       timeout: 60_000,
     });
@@ -193,8 +194,8 @@ const DEV_PORT = 8787;
 
 async function startWranglerDev() {
   const child = spawn(
-    'npx',
-    ['--no-install', 'wrangler', 'dev', '--remote', '--port', String(DEV_PORT), '--var', 'DEV_EMBED:1'],
+    NPX,
+    ['--no-install', 'wrangler', 'dev', 'src/index.js', '--remote', '--port', String(DEV_PORT), '--var', 'DEV_EMBED:1'],
     { cwd: join(ROOT, 'worker'), stdio: ['ignore', 'pipe', 'pipe'] },
   );
 
@@ -282,7 +283,7 @@ for (const file of files) {
 
   for (const section of chunkBody(body, title)) {
     const label = section.heading ? `${title} — ${section.heading}` : title;
-    // 임베딩 대상 텍스트에 메타를 얹어야 "지란소프트에서 뭐 했어?" 같은 질문이 걸린다
+    // 임베딩 대상 텍스트에 메타를 얹어야 "지란지교소프트에서 뭐 했어?" 같은 질문이 걸린다
     const contextLine = [meta.org, meta.period, meta.role].filter(Boolean).join(' · ');
     const tagLine = Array.isArray(meta.tags) ? meta.tags.join(', ') : '';
 

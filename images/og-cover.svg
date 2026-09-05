@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="20" x2="1140" y2="610" gradientUnits="userSpaceOnUse"><stop stop-color="#F8F7FF"/><stop offset=".52" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEDFF"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#958BFF"/><stop offset="1" stop-color="#5147DC"/></linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="55"/></filter>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="200%"><feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#5147DC" flood-opacity=".25"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1060" cy="70" r="190" fill="#C8C2FF" opacity=".32" filter="url(#blur)"/>
+  <circle cx="930" cy="565" r="220" fill="#E3E0FF" opacity=".55" filter="url(#blur)"/>
+  <g opacity=".55" stroke="#CBC7F6" stroke-width="2">
+    <path d="M835 136 986 216 1090 115M986 216l55 153 112 72M1041 369 895 470 790 389M895 470l132 71"/>
+    <circle cx="835" cy="136" r="7" fill="#6C63F5"/><circle cx="986" cy="216" r="9" fill="#fff"/><circle cx="1090" cy="115" r="6" fill="#6C63F5"/><circle cx="1041" cy="369" r="8" fill="#6C63F5"/><circle cx="1153" cy="441" r="6" fill="#fff"/><circle cx="895" cy="470" r="10" fill="#fff"/><circle cx="790" cy="389" r="6" fill="#6C63F5"/><circle cx="1027" cy="541" r="7" fill="#6C63F5"/>
+  </g>
+  <g transform="translate(86 76)">
+    <g transform="scale(1.25)" filter="url(#shadow)">
+      <path fill="url(#accent)" d="M32 3C44.7 3 55.2 12.2 57.4 24.2c2.4 13.3-5.5 27.5-18 33.3-5.5 2.5-12 2.2-17.4-.6C10.5 51 4 37.3 6.9 24.7 9.5 12.5 19.5 3 32 3Z"/>
+      <path fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" d="M19 18v28h8.5c10.3 0 17.5-4.9 17.5-14s-7.2-14-17.5-14H19Zm0 28h28"/>
+      <circle cx="48.5" cy="16" r="3.5" fill="#DCD8FF"/>
+    </g>
+    <text x="0" y="198" fill="#15141E" font-family="Arial, Noto Sans KR, sans-serif" font-size="76" font-weight="700" letter-spacing="-3">Dahye Lee</text>
+    <text x="2" y="257" fill="#6C63F5" font-family="Arial, Noto Sans KR, sans-serif" font-size="28" font-weight="700" letter-spacing="4">AI DEVELOPER</text>
+    <text x="2" y="342" fill="#403E57" font-family="Arial, Noto Sans KR, sans-serif" font-size="30">Document AI · OCR · RAG · Computer Vision</text>
+    <rect x="2" y="397" width="102" height="8" rx="4" fill="#6C63F5"/><rect x="114" y="397" width="42" height="8" rx="4" fill="#C8C2FF"/>
+  </g>
+</svg>

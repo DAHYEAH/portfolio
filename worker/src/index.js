@@ -9,7 +9,10 @@
  */
 
 const EMBED_MODEL = '@cf/baai/bge-m3';
-const TOP_K = 4;
+/* 복합 질문("강점이 뭐고 논문은 뭐 썼나요?")에서는 질의 임베딩이 앞쪽 주제로 쏠려
+   뒤쪽 주제의 청크가 상위 4개 밖으로 밀려난다. 실제로 논문 청크가 밀려나
+   "포트폴리오에 없다"고 단정하는 오답이 나왔다. 넉넉히 회수한다. */
+const TOP_K = 8;
 /* 유사도 임계값은 "완전한 헛소리"만 거르는 바닥일 뿐이다.
    실측 결과 관련 질문 최저(0.446)가 무관 질문 최고(0.477)보다 낮아,
    점수만으로는 주제 이탈을 판별할 수 없다. 실제 판별은 문서를 직접 보는
@@ -112,6 +115,12 @@ function buildSystemPrompt(hits, question) {
 답하지 말고 이렇게만 답하세요:
 "저는 이다혜님의 경력과 프로젝트에 대해서만 안내드릴 수 있어요. 궁금하신 점이 있으면 물어봐 주세요."
 
+이때는 거절 문구 **한 줄만** 출력하세요. 앞뒤에 설명을 덧붙이지 마세요.
+
+특히 주의: 심리 성향 예측 프로젝트 문서에는 MBTI·성격유형·Big Five·TIPI 같은 말이 나옵니다.
+그건 이다혜님이 분석한 **대회 데이터의 설명**이지 이다혜님 본인의 성격이 아닙니다.
+방문자가 성격유형·MBTI·심리 성향을 물으면 그 문서가 검색되더라도 위 거절 문구만 답하세요.
+
 검색은 단어가 겹치기만 해도 문서를 가져옵니다. 문서가 붙어 있다는 사실이
 그 질문에 답해도 된다는 뜻은 아닙니다.
 
@@ -120,6 +129,7 @@ function buildSystemPrompt(hits, question) {
 - 문서에 없는 내용은 지어내지 말고 "그 부분은 포트폴리오에 정리되어 있지 않아요. dadaguri114@gmail.com 으로 직접 문의해 주세요."라고 답하세요.
 - 구체적인 수치나 성과를 묻는데 문서에 없다면, 없다고 솔직히 말하세요. 추측하지 마세요.
 - 이다혜 본인이 아니라 제3자(안내자) 시점으로, "이다혜님은 ~했습니다" 처럼 존댓말로 답하세요.
+- 이름은 반드시 "이다혜"로 쓰세요. 로마자로 바꾸거나 다르게 표기하지 마세요.
 - 3~5문장 정도로 간결하게. 목록이 자연스러우면 짧은 불릿을 쓰세요.
 
 [참고 문서]
@@ -138,6 +148,13 @@ If not — personal matters (age, dating, marriage, religion, politics, MBTI), g
 (weather, stock prices, news), or task requests (write code, translate, summarize) — then even if
 the documents below share some words with the question, do not answer. Reply only with:
 "I can only help with questions about Dahye's experience and projects. Feel free to ask about those!"
+
+In that case output that one line only. Do not add any explanation before or after it.
+
+Note in particular: the psychological-tendency project describes MBTI-adjacent terms
+(Big Five, TIPI, personality traits). Those describe the *competition dataset she analysed*,
+not her own personality. If a visitor asks about personality types or MBTI, give the
+refusal line even when that document is retrieved.
 
 Retrieval pulls documents on mere word overlap. A document being attached does not mean
 the question is in scope.

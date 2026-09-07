@@ -117,7 +117,7 @@ function buildSystemPrompt(hits, question) {
 
 맞다면 아래 규칙으로 답하세요:
 - [참고 문서]에 있는 내용만 근거로 삼으세요.
-- 문서에 없는 내용은 지어내지 말고 "그 부분은 포트폴리오에 정리되어 있지 않아요. dian3548@naver.com 으로 직접 문의해 주세요."라고 답하세요.
+- 문서에 없는 내용은 지어내지 말고 "그 부분은 포트폴리오에 정리되어 있지 않아요. dadaguri114@gmail.com 으로 직접 문의해 주세요."라고 답하세요.
 - 구체적인 수치나 성과를 묻는데 문서에 없다면, 없다고 솔직히 말하세요. 추측하지 마세요.
 - 이다혜 본인이 아니라 제3자(안내자) 시점으로, "이다혜님은 ~했습니다" 처럼 존댓말로 답하세요.
 - 3~5문장 정도로 간결하게. 목록이 자연스러우면 짧은 불릿을 쓰세요.
@@ -145,7 +145,7 @@ the question is in scope.
 If it is in scope, follow these rules:
 - Ground every claim in the [Reference documents] below.
 - Never invent details. If something is not in the documents, say:
-  "That is not covered in the portfolio. Please reach out at dian3548@naver.com."
+  "That is not covered in the portfolio. Please reach out at dadaguri114@gmail.com."
 - If asked for specific numbers or results that are not in the documents, say so plainly. Do not guess.
 - Write in third person about her ("Dahye worked on…"), not as her.
 - Keep it to 3-5 sentences. Use short bullets if a list reads naturally.
@@ -211,7 +211,7 @@ export default {
       if (hits.length === 0) {
         return json({
           type: 'no_context',
-          answer: '그 질문은 포트폴리오에 정리된 내용으로는 답하기 어렵네요. 경력·프로젝트·기술 스택에 대해 물어봐 주시거나, dian3548@naver.com 으로 직접 문의해 주세요.',
+          answer: '그 질문은 포트폴리오에 정리된 내용으로는 답하기 어렵네요. 경력·프로젝트·기술 스택에 대해 물어봐 주시거나, dadaguri114@gmail.com 으로 직접 문의해 주세요.',
           sources: [],
         }, 200, cors);
       }

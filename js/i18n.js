@@ -13,14 +13,14 @@ const translations = {
     "nav.contact":    "Contact",
 
     /* HERO */
-    "hero.eyebrow":      "AI Developer · JiranJigyoSoft",
+    "hero.eyebrow":      "AI Developer · JiranSoft",
     "hero.subtitle":     "Building intelligent document AI systems — OCR, RAG, document parsing, and watermarking from research to production.",
     "hero.cta.projects": "View Projects",
 
     /* ABOUT */
     "section.about":     "About",
     "about.title":       "Who I Am",
-    "about.bio":         "AI researcher and developer at JiranJigyoSoft, working on document understanding, OCR, and Large Language Models. I'm passionate about applying NLP and Vision Language Models to real-world document AI problems.",
+    "about.bio":         "AI researcher and developer at JiranSoft, working on document understanding, OCR, and Large Language Models. I'm passionate about applying NLP and Vision Language Models to real-world document AI problems.",
     "about.email.label": "Email",
     "about.award.label": "Awards",
     "about.award.value": "SW AI Competition 2023 — Excellence Award · Academic Excellence Scholarship (2020–2023)",
@@ -32,7 +32,7 @@ const translations = {
     /* EXPERIENCE */
     "section.experience":    "Experience",
     "experience.title":      "Work Experience",
-    "exp.company":           "JiranJigyoSoft (formerly JiranData)",
+    "exp.company":           "JiranSoft (formerly JiranData)",
     "exp.role":              "AI Developer · AI Research Team",
     "exp.desc":              "AI R&D focused on document intelligence: OCR, Table Structure Recognition, RAG, document parsing, and invisible image watermarking.",
     "exp.proj1.name":        "Document Understanding Model",
@@ -57,7 +57,7 @@ const translations = {
     "edu.degree":        "B.S. in Computer Engineering · Advisor: Prof. Hyunbean Yi",
 
     /* PROJECTS — JIRANSOFT */
-    "section.jiransoft":  "JiranJigyoSoft Projects",
+    "section.jiransoft":  "JiranSoft Projects",
     "jiransoft.title":    "Work Projects",
     "jp1.period":         "2023.10 — Present",
     "jp1.title":          "Document Understanding Model Development",

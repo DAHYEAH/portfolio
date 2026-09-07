@@ -29,9 +29,8 @@ Document AI, VLM, 멀티모달 AI에 관심이 많고, 앞으로 이 분야의 �
 - 돈사 현황판 OCR 프로젝트 개발과 제1저자 논문 작성을 주도하고, KKITS 2023 춘계학술대회에서 직접 발표
 
 ## 연락처
-- 이메일: dian3548@naver.com (개인), dadaguri114@gmail.com
+- 이메일: dadaguri114@gmail.com
 - GitHub: https://github.com/DAHYEAH
-- Notion: https://www.notion.so/HOME-e0cb7a695cb34f93bc955195354ba99a
 - 포트폴리오: https://dahyeah.github.io/portfolio/
 
 ## 수상 및 자격
@@ -45,7 +44,7 @@ Document AI, VLM, 멀티모달 AI에 관심이 많고, 앞으로 이 분야의 �
 
 ## English
 
-Dahye Lee is an AI developer on the AI Research team at JiranJigyoSoft, working on document
+Dahye Lee is an AI developer on the AI Research team at JiranSoft, working on document
 AI, OCR, VLM, multimodal AI, and large language models. She builds document AI systems end to end —
 from model training and dataset quality work to TensorRT/Triton inference optimization and
 production APIs.

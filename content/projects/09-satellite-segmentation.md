@@ -12,8 +12,6 @@ tags: [세그멘테이션, UNet, 위성이미지, 대회, 수상, DACON, 건물�
 links:
   - label: DACON 대회 페이지
     url: https://dacon.io/competitions/official/236092/overview/description
-  - label: Notion
-    url: https://www.notion.so/DACON-2023-SW-AI-e23aaab8a2374c808740e206e5121fd0
   - label: 결과 발표자료 (PPTX)
     url: files/2023-sw-ai-competition-satellite-segmentation.pptx
 ---

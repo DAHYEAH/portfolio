@@ -44,7 +44,7 @@ tags: [경력, 회사, 직장, 근무, 이직, 커리어]
 
 ## English
 
-**JiranJigyoSoft (formerly JiranData) — AI Developer, AI Research Team (2023.10 – present).**
+**JiranSoft (formerly JiranData) — AI Developer, AI Research Team (2023.10 – present).**
 Document intelligence R&D: OCR, Table Structure Recognition, RAG, document parsing, and
 invisible image watermarking.
 

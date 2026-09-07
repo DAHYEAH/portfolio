@@ -27,7 +27,7 @@ const UI = {
     ],
     errors: {
       rate:    '질문이 너무 빨라요. 잠시 후 다시 시도해 주세요.',
-      quota:   '오늘의 무료 사용량을 다 썼어요. 내일 다시 시도해 주시거나 dian3548@naver.com 으로 문의해 주세요.',
+      quota:   '오늘의 무료 사용량을 다 썼어요. 내일 다시 시도해 주시거나 dadaguri114@gmail.com 으로 문의해 주세요.',
       network: '연결에 문제가 있어요. 잠시 후 다시 시도해 주세요.',
       config:  '챗봇이 아직 연결되지 않았어요. (Worker 배포 후 js/chat.js 의 WORKER_URL 을 설정해 주세요)',
     },
@@ -52,7 +52,7 @@ const UI = {
     ],
     errors: {
       rate:    'Too many questions at once. Please try again shortly.',
-      quota:   "Today's free quota is used up. Please try tomorrow or email dian3548@naver.com.",
+      quota:   "Today's free quota is used up. Please try tomorrow or email dadaguri114@gmail.com.",
       network: 'Connection problem. Please try again shortly.',
       config:  'The chatbot is not connected yet. (Set WORKER_URL in js/chat.js after deploying the Worker.)',
     },
